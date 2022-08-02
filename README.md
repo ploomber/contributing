@@ -1,6 +1,6 @@
 # Contributing to Ploomber
 
-Ploomber is a big community of data enthusiasts pushing the boundaries of Data Science and Machine Learning tooling. We pride ourselves in trying out crazy things (we ❤️ running notebooks in production!) to make data analysis more fun and enjoyable.
+Ploomber is a big community of data enthusiasts pushing the boundaries of Data Science and Machine Learning tooling. We pride ourselves on trying crazy things (we ❤️ running notebooks in production!) to make data analysis more fun and enjoyable.
 
 Whatever your skillset is, you can contribute to our mission. So whether you're a beginner or an experienced professional, you're welcome to join us on this journey!
 
