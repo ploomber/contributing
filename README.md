@@ -8,21 +8,21 @@ Your contributions will be open-source and available to everyone. It's a great w
 
 Here are a few things we need help with (in no particular order):
 
-- ❤️ Share the Ploomber love
-- Coding
+- [❤️ Share the Ploomber love](#%EF%B8%8F-share-the-ploomber-love)
+- [Coding](#-coding)
 - Writing
-    - Blog posts
-    - Technical Tutorials
-    - Editing
-    - Technical Documentation
+    - [Blog posts](#%EF%B8%8F-writing-blog-posts)
+    - [Technical Tutorials](#%EF%B8%8F-writing-technical-tutorials)
+    - [Editing](#%EF%B8%8F-writing-editing)
+    - [Technical Documentation](#%EF%B8%8F-writing-technical-documentation)
 - Speaking
-    - Recorded Tutorials
-    - Conferences
+    - [Recorded Tutorials](#-speaking-recorded-tutorials)
+    - [Conferences](#-speaking-conferences)
 - Community
-    - Answering Questions on Slack
-    - Run Events
-    - Feedback
-- Other
+    - [Answering Questions on Slack](#-community-answering-questions-on-slack)
+    - [Run Events](#-community-run-events)
+    - [Feedback](#-community-feedback)
+- [Other](#other)
 
 
 ## ❤️ Share the Ploomber love
