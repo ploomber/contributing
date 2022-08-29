@@ -53,7 +53,8 @@ you can also use papermill or nbclient, but they're more limited in features
 
 ## Snapshot Testing
 
-TODO: summarize from the other blog post
+TODO: summarize from the other blog post and link to it
+https://ploomber.io/blog/snapshot-testing/
 
 ## Unit Testing
 
