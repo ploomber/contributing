@@ -19,4 +19,4 @@ grayskull pypi --strict-conda-forge {package-name}
 ```
 
 - Edit the `meta.yaml`, ensure you're listed as maintainer
-- Add the `LICENSE` file at `staged-recipes/recipes/LICENSE`
+- Note: there is no need to add the `LICENSE` file at `staged-recipes/recipes/LICENSE` (as their docs suggest) if the LICENSE is already in the `.tar.gz` file.
