@@ -1,14 +1,17 @@
 ---
-title: Testing Jupyter notebooks
+title: Testing Jupyter Notebooks
 ---
 
 
 ## Introduction
 
-* notebooks have a reputation for not being production-friendly
-* code is as robust as its testing suite is, doesn't matter if it's a notebook, script, function, class
-* if we test notebooks, there's no reason not to ship them to production
-* here I'll go over four approaches for testing jupyter notebooks. pros, cons and open-source tools to implement each approach
+If you’re in the data space, you’ll likely use Jupyter notebooks the most from your developer toolbox. However, notebooks do have a reputation of not being "production-friendly". So how do you go from development-friendly to production-friendly notebooks?
+
+As a developer, testing your code—from modular units like classes and functions to larger scripts and notebooks—is important. Writing robust test suites for your notebooks can take them a step closer to production. 
+
+In this guide, we’ll go over four approaches for testing Jupyter notebooks. We’ll enumerate the advantages and limitations of each approach, along with the open-source tool recommendations to implement each of the approaches.
+
+By the end of this tutorial, you'll have learned enough to start testing your Jupyter notebooks. Let's dive in!
 
 ## Smoke Testing
 
