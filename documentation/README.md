@@ -37,7 +37,7 @@ These are code snippets that users can copy-paste. We should pay attention to fi
 
 A great idea to find patterns is to search on Stack Overflow for popular questions. Finding popular Stack Overflow questions will tell us what people are trying to do. For example, sklearn-evaluation provides a function to plot a confusion matrix; if we search "confusion matrix" we'll find questions such as "How do I plot a normalized confusion matrix?" or "How do I plot a multiclass confusion matrix?", both of them are good candidates to be included as recipes in our cookbook.
 
-The recipes should be included in the docstrings of the relevant functions/classes.
+If the recipes are simple, they should be included in the docstrings of the relevant functions/classes (and they [should be tested as part of the CI](https://docs.pytest.org/en/7.1.x/how-to/doctest.html)). When the recipes are more ellaborated (e.g., they require some setup that needs explanation, other packages, or multiple modules), we can create a *Cookbook* section in the documentation and add them as notebooks.
 
 ### API Reference
 
@@ -69,6 +69,7 @@ Sections should be hyperlinked. For example, the API reference should link to th
 - When notebooks require optional dependencies, we should document them at the top of the file so that users can install the appropriate libraries (e.g., a top cell with: `%pip install somepackage`)
 - The notebook should be organized into short sections so that users can navigate to any specific one. The titles should be short but descriptive enough
 - Since we'll run the notebooks as part of the documentation compilation process, all of them should run fast (ideally, below 10 seconds)
+- If notebooks require external files we should include both a link to the file and a command to download it (e.g., `curl -O https://ploomber.io/some-file.txt`)
 
 ### New features and breaking API changes
 
