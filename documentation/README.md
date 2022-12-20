@@ -66,7 +66,7 @@ Sections should be hyperlinked. For example, the API reference should link to th
 
 - Notebooks should not hide any important details (e.g., hiding cells) since users are expected to copy and paste the code on them
 - In some cases (e.g., when output is too verbose), we might decide to hide some outputs, but we should be cautious of these
-- When notebooks require optional dependencies, we should document them at the top of the file so that users can install the appropriate libraries (e.g., a top cell with: `%pip install somepackage`)
+- When notebooks require optional dependencies, we should document them at the top of the file so that users can install the appropriate libraries (e.g., a top cell with: `%pip install somepackage --quiet`)
 - The notebook should be organized into short sections so that users can navigate to any specific one. The titles should be short but descriptive enough
 - Since we'll run the notebooks as part of the documentation compilation process, all of them should run fast (ideally, below 10 seconds)
 - If notebooks require external files we should include both a link to the file and a command to download it (e.g., `curl -O https://ploomber.io/some-file.txt`)
