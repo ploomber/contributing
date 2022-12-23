@@ -19,7 +19,7 @@ We write these tutorials as Jupyter notebooks; this makes authoring easier and a
 
 Depending on the project, sometimes we might decide to have a single notebook be the "Getting started" tutorial; other times, we might have multiple ones, for example, one for each module.
 
-### Guidelines
+#### Guidelines
 
 doc/requirements.txt (or doc/environment.yml) should contain all the dependencies required to run the notebooks with notes specifying if a specific library is only used for a particular notebook so we can remove it if we remove the notebook.
 
