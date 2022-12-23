@@ -8,7 +8,7 @@ We can classify the resource types into four groups:
 
 - Getting started: Provide a quick route to begin using the project; their objective is to teach the basics to get started.
 - User Guide: Provide in-depth walkthroughs to use the project; they are more advanced versions than the "Getting started" guides, but their primary purpose is also teaching.
-- Cookbook: Recipes to achieve a specific goal. They provide short and to-the-point examples to perform common tasks. Their objective is to be a shortcut so the user doesn't have to gather all the pieces from reading the API reference.
+- How-to: Recipes to achieve a specific goal. They provide short and to-the-point examples to perform common tasks. Their objective is to be a shortcut so the user doesn't have to gather all the pieces from reading the API reference.
 - API reference: They provide detailed documentation about the project's API. They are automatically generated from docstrings and document function arguments. They also contain basic examples that users can copy paste.
 
 The following sections describe each group in more detail.
@@ -31,13 +31,13 @@ As with "Getting Started", these are Jupyter notebooks, and we'll decide on a ca
 
 In cases where the library requires technical concepts (sklearn-evaluation is an excellent example since the docs assume it is familiar with Machine Learning concepts), the User Guide should explain these concepts. Explaining concepts in detail and with clarity will help us acquire users via search engines like Google.
 
-### Cookbook
+### How-to
 
-These are code snippets that users can copy-paste. We should pay attention to finding common patterns; once we identify them, we can create snippets and add them to the cookbook so users can quickly find them and get things done.
+These are code snippets that users can copy-paste. We should pay attention to finding common patterns; once we identify them, we can create snippets and add them to the How-To so users can quickly find them and get things done.
 
-A great idea to find patterns is to search on Stack Overflow for popular questions. Finding popular Stack Overflow questions will tell us what people are trying to do. For example, sklearn-evaluation provides a function to plot a confusion matrix; if we search "confusion matrix" we'll find questions such as "How do I plot a normalized confusion matrix?" or "How do I plot a multiclass confusion matrix?", both of them are good candidates to be included as recipes in our cookbook.
+A great idea to find patterns is to search on Stack Overflow for popular questions. Finding popular Stack Overflow questions will tell us what people are trying to do. For example, sklearn-evaluation provides a function to plot a confusion matrix; if we search "confusion matrix" we'll find questions such as "How do I plot a normalized confusion matrix?" or "How do I plot a multiclass confusion matrix?", both of them are good candidates to be included as recipes in our How-To guides.
 
-If the recipes are simple, they should be included in the docstrings of the relevant functions/classes (and they [should be tested as part of the CI](https://docs.pytest.org/en/7.1.x/how-to/doctest.html)). When the recipes are more ellaborated (e.g., they require some setup that needs explanation, other packages, or multiple modules), we can create a *Cookbook* section in the documentation and add them as notebooks.
+If the recipes are simple, they should be included in the docstrings of the relevant functions/classes (and they [should be tested as part of the CI](https://docs.pytest.org/en/7.1.x/how-to/doctest.html)). When the recipes are more ellaborated (e.g., they require some setup that needs explanation, other packages, or multiple modules), we can create a *How-To guide* section in the documentation and add them as notebooks.
 
 ### API Reference
 
