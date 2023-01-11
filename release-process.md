@@ -1,8 +1,18 @@
 # Release process
 
-This document describes our release process for open-source projects.
-
+This document describes our release process for open-source projects. It's divided
+in two sections: contributors (people who contribute with code), maintainers
+(people who configure the repository, review code, and release). The same person
+can be both.
 ## Contributors
+
+### Preparing a Pull Request
+
+Before submitting a pull request, ensure there are no linting issues by running:
+
+```sh
+flake8
+```
 
 ### New features, changes, and deprecations
 
@@ -25,12 +35,12 @@ that there might be changes that we don't include in the `CHANGELOG`, but they e
 in the `git log`, for example changes to the CI configuration, new tests
 added/fixed.
 
-These are changes that we add to the `CHANGELOG`:
+These are changes that we add to the `CHANGELOG` (in this order):
 
-- [Doc] Important documentation changes
-- [Feature] New features
 - [API Change] API breaking changes
+- [Feature] New features
 - [Fix] Bug fixes
+- [Doc] Important documentation changes (e.g., new sections, major re-organization)
 
 Each new line in the `CHANGELOG` must be prefixed by its category. Example:
 
@@ -46,7 +56,17 @@ If there is an issue related to the change, it should be added to the end:
 
 Note that we're not adding the link to GitHub, this will happen automatically during the release process.
 
-## Reviewing Pull Requests
+## Maintainers
+
+### Continuous integration
+
+We use GitHub Actions to test our projects. Each one should test against these configuration:
+
+- OS: macOS, Linux, and Windows
+- Python version: 3.7, 3.8, 3.9, 3.10
+- Documentation building (only Python 3.10 and Linux)
+
+### Reviewing Pull Requests
 
 Once the Pull Request is reviewed and approved, the reviewer determines
 what happens next. Most often, the following action would be to deploy a new minor version
@@ -67,7 +87,7 @@ the PR.
 - `[minor]` - Release a new minor version
 - `[major]` - Release a new major version
 
-## Releasing
+### Releasing
 
 *Note: this describes the steps to upload to PyPI. However, they will be automated in a GitHub Action*
 
@@ -88,7 +108,7 @@ push it.
 - Check that `.. versionchanged::` and `.. versionadded::` are correct (they point to either the current release or previous releases)
 - If making a new minor release, check that there are no `[API Change]` changes in the CHANGELOG
 
-## Planning for a major version release
+### Planning for a major version release
 
 We avoid unnecessary changes that break the API; however, sometimes, we have to do it.
 PRs with changes that break the API should be merged into the corresponding development
