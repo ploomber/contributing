@@ -73,7 +73,9 @@ Sections should be hyperlinked. For example, the API reference should link to th
 
 ### New features and breaking API changes
 
-Whenever we introduce (or change) a feature, the version number where the feature was introduced should be documented (in notebooks and API reference). We can do this via the `.. versionadded` and `.. versionchanged` [Sphinx directives.](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-versionadded)
+Whenever we introduce (or change) a feature, the version number where the feature was introduced should be documented (in notebooks and API reference). We can do this via the `.. versionadded`, `.. deprecated` and `.. versionchanged` [Sphinx directives.](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-versionadded)
+For minor changes, we give a grace of 2 minor versions to the users, i.e. if we've implemented in 0.8.5, we should add a `.. deprecated:: 0.8.7`.
+The deprecation piece is currently manual, so in case you've added those flags, please open a git issue to remove the old feature (we will automate it into the CI at some stage).
 
 ## Resources
 
