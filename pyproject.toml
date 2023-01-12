@@ -1,0 +1,3 @@
+[tool.pkgmt.check_links]
+extensions = ["md"]
+ignore_substrings = ["https://github.com/issues?"] # not sure why this returns 404
