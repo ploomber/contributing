@@ -8,3 +8,5 @@ sphinx:
   builder: html
   fail_on_warning: true
 ```
+
+However, this setting makes the doc building process too strict.
