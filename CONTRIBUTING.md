@@ -203,12 +203,14 @@ s    commit_hash_4 commit_message_4
 
 ## Conda releases (`conda-forge`)
 
-`ploomber` is available in conda (via [conda-forge](https://conda-forge.org/)). The recipes are located here:
+Some of our packages are available in conda (via [conda-forge](https://conda-forge.org/)). The recipes are located here:
 
 * [ploomber](https://github.com/conda-forge/ploomber-feedstock)
 * [ploomber-scaffold](https://github.com/conda-forge/ploomber-scaffold-feedstock)
+* [ploomber-engine](https://github.com/conda-forge/ploomber-engine-feedstock)
+* [debuglater](https://github.com/conda-forge/debuglater-feedstock)
 
-The first feedstock corresponds to the core package, and the second is a complimentary package that implements the scaffolding logic (i.e., `ploomber scaffold`). When uploading a new version to PyPI, the conda-forge bot automatically opens a PR to the feedstocks; upon approval, the new versions are available to install via `conda install ploomber --channel conda-forge`.
+When uploading a new version to PyPI, the conda-forge bot automatically opens a PR to the feedstocks; upon approval, the new versions are available to install via `conda install ploomber --channel conda-forge`.
 
 Note that conda-forge implements a CI pipeline that checks that the recipe works. Thus, under most circumstances, the PR will pass. One exception is when adding new dependencies to `setup.py`; in such a case, we must manually edit the recipe (`meta.yml`) and open a PR to the feedstock. See the next section for details.
 
