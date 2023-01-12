@@ -1,6 +1,6 @@
 # Contributing
 
-To support your journey, check out our [blog post](https://ploomber.io/blog/open-source/) (you might read it in chunks as you make progress).
+For an introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/) (you might read it in chunks as you make progress).
 
 ## Setup
 
@@ -39,7 +39,9 @@ If you don't see any output after running `flake8`, you're good to go!
 
 ### Maintaining backwards compatibility
 
-We follow [scikit-learn's guidelines](https://scikit-learn.org/stable/developers/contributing.html#maintaining-backwards-compatibility).
+We keep backwards compatibility for two major releases (a bump in the middle number in `X.Y.Z`). For example, if we deprecate a function, we make a release (say, `0.5`) and start showing warnings, until we deprecate it in version `0.7`.
+
+In the `ploomber-core` package, we've [implemented a module](https://ploomber-core.readthedocs.io/en/latest/deprecation.html) to facilitate introducing warnings due to deprecated code.
 
 
 ### Documenting changes and new features
@@ -93,6 +95,13 @@ If your change impacts the Spec API (i.e., `pipeline.yaml`). It should also be d
 
 If there isn't a `.. collapse:: Changelog` at the end of the section, add one.
 
+### Optional dependencies
+
+If the feature you're implementing requires extra packages, we might consider adding them as optional dependencies. [Check out the guide.](https://ploomber-core.readthedocs.io/en/latest/dependencies.html)
+
+### Telemetry
+
+To measure usage, we add telemetry to our packages. See the [user guide.](https://ploomber-core.readthedocs.io/en/latest/telemetry.html)
 
 ### Providing helpful error messages
 
