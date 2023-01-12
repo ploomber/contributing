@@ -227,7 +227,7 @@ If `conda-forge`'s bot PR fails (usually because a new dependency was added), we
 3. Create a new branch: `git checkout -b branch-name`
 4. Update recipe (`meta.yaml`):
     * Update the version in the `{% set version = "version" %}` line
-    * Update `source.sha256`, you can get that from `https://pypi.org/project/ploomber/{version}/#files`, just change the `version` and copy the SHA256 hash from the `.tar.gz` file
+    * Update `source.sha256`, you can get that from `https://pypi.org/project/{package-name}/{version}/#files`, just change the `{package-name}`,`{version}`, and copy the SHA256 hash from the `.tar.gz` file
     * If there are new dependencies (or new constraints), add them to `requirements.run`
 5. You may need to run `conda smithy rerender -c auto` ([click here for details](https://conda-forge.org/docs/maintainer/updating_pkgs.html#rerendering-feedstocks))
 
