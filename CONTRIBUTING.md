@@ -36,6 +36,19 @@ flake8
 If you don't see any output after running `flake8`, you're good to go!
 
 
+To automatically run `flake8` before pushin:
+
+```sh
+pip install pkgmt
+pkgmt hook
+```
+
+The command above will install a git pre-push hook. To uninstall:
+
+```sh
+pkgmt hook --uninstall
+```
+
 ### Maintaining backwards compatibility
 
 We keep backwards compatibility for one major release, if we've made a major release recently, we might keep it backwards compatibility for two major releases.
