@@ -8,7 +8,7 @@ We use GitHub Actions to test our projects. Each one should test against these c
 - OS: macOS, Linux, and Windows
 - Python version: 3.7, 3.8, 3.9, 3.10
 - [Documentation preview](https://github.com/readthedocs/actions/tree/v1/preview)
-- General checks (via `pkgmt check-project`)
+- General checks (via `pkgmt check`)
 
 ## Reviewing Pull Requests
 

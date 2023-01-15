@@ -23,3 +23,7 @@ sphinx:
 execute:
     execute_notebook: cache
 ```
+
+## Binder
+
+We enable binder so user can run our examples.
