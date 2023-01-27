@@ -36,7 +36,7 @@ flake8
 If you don't see any output after running `flake8`, you're good to go!
 
 
-To automatically run `flake8` before pushin:
+To automatically run `flake8` before pushing:
 
 ```sh
 pip install pkgmt
