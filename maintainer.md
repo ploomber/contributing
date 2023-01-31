@@ -17,8 +17,8 @@ using the special commit message `[release]`, after a successfull CI.
 
 We can choose any of these options to release a new version:
 
-- Merge PR with commit message `[release]`
-- Add an empty commit message to the master branch
+- Add a commit message `[release]` to the PR
+- Add an empty commit message `[release]` to the master branch
 
 ## Reviewing Pull Requests
 
