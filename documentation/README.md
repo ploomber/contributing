@@ -79,6 +79,57 @@ Whenever we introduce (or change) a feature, the version number where the featur
 For minor changes, we give a grace of 2 minor versions to the users, i.e. if we've implemented in 0.8.5, we should add a `.. deprecated:: 0.8.7`.
 The deprecation piece is currently manual, so in case you've added those flags, please open a git issue to remove the old feature (we will automate it into the CI at some stage).
 
+## Previewing docs
+
+The easiest way to preview your docs is to open a draft Pull Request. Each PR triggers a pull request so after a few minutes of opening it, you'll see it at the bottom:
+
+![link](assets/docs-link.png)
+
+To preview the docs, click on `Details` on the right side of the `docs/readthedocs.org:{pkg-name}` job, or click in the link that's automatically added to the first comment:
+
+![link](assets/docs-status.png)
+
+If the build isn't successful, you'll see a ❌ instead of a ✅, clicking on details will take you to the logs:
+
+![link](assets/docs-error.png)
+
+If it's unclear why the docs are failing, post a message in the PR with the link to the logs and we'll help you debugging.
+
+
+## Building docs locally
+
+You might also build docs locally. However, this is a bit challending since the documentation often requires installing many dependencies. We've standardized the process for the most part but send us a message on Slack if you have issues.
+
+First, you must have miniconda installed, then run:
+
+```sh
+pip install invoke
+```
+
+Then, install the development environment with:
+
+```sh
+invoke setup --doc
+```
+
+If you see an error, omit the `--doc` argument:
+
+```sh
+invoke setup
+```
+
+Upon running the command above, you'll see a message telling you how to activate the environment:
+
+```sh
+conda activate {env-name}
+```
+
+Once, the environment is activated, build the docs with:
+
+```sh
+invoke doc
+```
+
 ## Resources
 
 - [The documentation system](https://documentation.divio.com/)
