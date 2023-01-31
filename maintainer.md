@@ -13,7 +13,7 @@ We use GitHub Actions to test our projects. Each one should test against these c
 ## Continuous deployment
 
 We use an automated process to tag and deploy new versions to PyPI using GitHub Actions and `pkgmt`. This process is triggered on the master branch
-using the special commit message `[release]`, after a successfull CI.
+using the special keyword `[release]` (must be at the beginning of the commit message), after a successfull CI.
 
 We can choose any of these options to release a new version:
 
