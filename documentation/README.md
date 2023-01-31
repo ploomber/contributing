@@ -64,6 +64,8 @@ Sections should be hyperlinked. For example, the API reference should link to th
 
 ### Notebooks (applies to Getting Started and User Guide)
 
+> For instructions on setting up your environment for writing notebooks, see [notebooks.md](notebooks.md)
+
 - Notebooks should not hide any important details (e.g., hiding cells) since users are expected to copy and paste the code on them
 - In some cases (e.g., when output is too verbose), we might decide to hide some outputs, but we should be cautious of these
 - When notebooks require optional dependencies, we should document them at the top of the file so that users can install the appropriate libraries (e.g., a top cell with: `%pip install somepackage --quiet`)
