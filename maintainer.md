@@ -10,6 +10,16 @@ We use GitHub Actions to test our projects. Each one should test against these c
 - [Documentation preview](https://github.com/readthedocs/actions/tree/v1/preview)
 - General checks (via `pkgmt check`)
 
+## Continuous deployment
+
+We use an automated process to tag and deploy new versions to PyPI using GitHub Actions and `pkgmt`. This process is triggered on the master branch
+using the special keyword `[release]` (must be at the beginning of the commit message), after a successfull CI.
+
+We can choose any of these options to release a new version:
+
+- Add a commit message `[release]` to the PR
+- Add an empty commit message `[release]` to the master branch
+
 ## Reviewing Pull Requests
 
 Once the Pull Request is reviewed and approved, the reviewer determines
