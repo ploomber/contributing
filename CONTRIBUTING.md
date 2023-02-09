@@ -52,6 +52,12 @@ The command above will install a git pre-push hook. To uninstall:
 pkgmt hook --uninstall
 ```
 
+If you want to do a one-time run (without installing the hook):
+
+```sh
+pkgmt hook --run
+```
+
 ## Linting/Formatting notebooks
 
 Most of our documentation is written using Jupyter in serveral formats (`.ipynb`, `.md`, etc.). [nbQA](https://github.com/nbQA-dev/nbQA) allows running `flake8` and `black` on notebooks. `flake8` is run in the CI so you you must ensure that you don't have any errors before submitting a PR.
