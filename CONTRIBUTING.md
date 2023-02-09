@@ -16,19 +16,22 @@ invoke setup
 
 ## Coding
 
-### Linting
+### Linting/Formatting
 
 
 We use [black](https://github.com/psf/black) for formatting code. *Please run black before submitting*. To apply black formatting:
 
 ```sh
+pip install black
+
 black .
 ```
 
 We use [flake8](https://flake8.pycqa.org/en/latest/) for linting. *Please check your code with flake8 before submitting*:
 
 ```sh
-# run this in the project directory to check code with flake8
+pip install flake8
+
 flake8
 ```
 *Note:* If you created a virtual env in a child directory, exclude it from `flake8` using the `--exclude` argument (e.g., `flake8 --exclude my-venv`).
@@ -47,6 +50,28 @@ The command above will install a git pre-push hook. To uninstall:
 
 ```sh
 pkgmt hook --uninstall
+```
+
+## Linting/Formatting notebooks
+
+Most of our documentation is written using Jupyter in serveral formats (`.ipynb`, `.md`, etc.). [nbQA](https://github.com/nbQA-dev/nbQA) allows running `flake8` and `black` on notebooks. `flake8` is run in the CI so you you must ensure that you don't have any errors before submitting a PR.
+
+Installation:
+
+```sh
+pip install nbqa jupytext
+```
+
+To run black:
+
+```sh
+nbqa black .
+```
+
+To run flake:
+
+```sh
+nbqa flake8 .
 ```
 
 ### Maintaining backwards compatibility
