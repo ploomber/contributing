@@ -38,6 +38,15 @@ Once JupyterLab starts, you'll see the file navigator on the left. Tutorials are
 
 ![files](assets/notebooks-files.png)
 
+To automatically reload your changes to the code in an existing notebook, run this before any import statements:
+
+```python
+%load_ext autoreload
+%autoreload 2
+```
+
+This way, you don't have to restart the kernel with every change. Note that this approach has some quirks, you might need to restart the kernel in some situations.
+
 ### Editing an existing notebook
 
 We store the notebooks in `.md` format; however, you can open them as notebooks:
