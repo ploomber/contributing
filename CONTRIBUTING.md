@@ -4,6 +4,10 @@ This is a general guide applicable to all our projects. However, there might be 
 
 For an introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/).
 
+> **Note**
+> If you're contributing with documentation (API docs, tutorials, etc.), check out the [doc contribution](documentation/README.md) document.
+
+
 ## Setup
 
 All of our projects have a `tasks.py` file in the root directory that allows you to quickly setup your development environment. Note that this requires [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed:
