@@ -9,6 +9,7 @@ We use GitHub Actions to test our projects. Each one should test against these c
 - Python version: 3.7, 3.8, 3.9, 3.10
 - [Documentation preview](https://github.com/readthedocs/actions/tree/v1/preview)
 - General checks (via `pkgmt check`)
+- Multiprocessing the tests via [pytest-xdist](https://github.com/pytest-dev/pytest-xdist)
 
 ## Continuous deployment
 
