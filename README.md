@@ -25,6 +25,9 @@ Here are a few things we need help with (in no particular order):
 - [Other](#other)
 
 
+> # Info
+> For a compilation of community contributions, [see here](community-contributions.md). If you created or found something, please open a Pull Request!
+
 ## ❤️ Share the Ploomber love
 Helps us spread the word about our product to everyone you know.
 
