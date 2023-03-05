@@ -162,6 +162,17 @@ If there is an issue related to the change, it should be added to the end:
 
 Note that we're not adding the link to GitHub, this will happen automatically during the release process.
 
+
+**Rules of thumb for CHANGELOG messages**
+
+Keep in mind this guidelines when writing changelog messages:
+
+
+- Use full sentences
+    - Example: [Fix] Fix an error that caused the function `do_something` to break when passing `0` as an input
+- Appropriately identify modules, functions or classes affect with backticks (`) and write the name exactly as it appears on the source code (do not use abbreviations)
+    - Example: [Feature] Add `some_module.Report` to generate reports from profiling data
+
 ### Telemetry
 
 To measure usage, we add telemetry to our packages. See the [user guide.](https://ploomber-core.readthedocs.io/en/latest/telemetry.html)
