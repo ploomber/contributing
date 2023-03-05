@@ -163,7 +163,7 @@ If there is an issue related to the change, it should be added to the end:
 Note that we're not adding the link to GitHub, this will happen automatically during the release process.
 
 
-**Rules of thumb for CHANGELOG messages**
+### Rules of thumb for CHANGELOG messages
 
 Keep in mind this guidelines when writing changelog messages:
 
