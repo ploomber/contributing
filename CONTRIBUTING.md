@@ -10,7 +10,7 @@ For an introduction to open-source contributions, check out our [blog post](http
 
 ## Setup
 
-All of our projects have a `tasks.py` file in the root directory that allows you to quickly setup your development environment. Note that this requires [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed:
+All of our projects have a `tasks.py` file in the root directory that allows you to quickly setup your development environment. Note that this requires [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed. _Note_ you do not need to create a python environment beforehand, calling invoke setup will take care of this.
 
 ```sh
 pip install invoke
