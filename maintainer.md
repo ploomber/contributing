@@ -5,7 +5,7 @@ This guide documents the process for code maintainers.
 ## Roles
 
 - **Reviewer:** Performs code reviews for Pull Requests; their objective is to ensure code quality
-- **Owner:** Reviews code, ensures that Pull Requests do not get stalled, clicks the  *merge* button, and is responsible for ensuring the that we ship functional, high-quality code
+- **Owner:** Reviews code, ensures that Pull Requests do not get stalled, clicks the **squash and merge** button, and is responsible for ensuring the that we ship functional, high-quality code
 
 ### Which one am I?
 
@@ -19,13 +19,15 @@ This guide documents the process for code maintainers.
 
 When performing a code review, verify the following:
 
-- The code meets the quality bar: the code is clear, and documented (docstrings)
 - Unit tests have been added and they're rigorously testing the code changes
+- An appropriate [CHANGELOG](CONTRIBUTING.md#changelog) entry has been added (when needed)
+- The code meets the quality bar
+    - Re-usable (e.g., abstracts common patterns in functions)
+    - Clear (i.e., descriptive variable names, inline comments when needed) - this also applies to unit tests
+- New features are documented: either a [docstring example](https://sklearn-evaluation.ploomber.io/en/latest/api/plot.html#confusionmatrix) (for minor features) or a full [tutorial](https://jupysql.ploomber.io/en/latest/integrations/duckdb.html) (major features) and the documentation is clear an concise
 
 Owners also have the following responsibilities:
 
-- An appropriate [CHANGELOG](CONTRIBUTING.md#changelog) entry has been added (when needed)
-- New features are documented: either a [docstring example](https://sklearn-evaluation.ploomber.io/en/latest/api/plot.html#confusionmatrix) (for minor features) or a full [tutorial](https://jupysql.ploomber.io/en/latest/integrations/duckdb.html) (major features)
 - If breaking API changes are introduced, a PR is merged with a [deprecation warning](CONTRIBUTING.md#maintaining-backwards-compatibility)
 - If breaking API changes are introduced: a [major version bump](CONTRIBUTING.md#maintaining-backwards-compatibility) is performed
 - Ensure that all CI checks passed before merging a Pull Request
@@ -63,7 +65,7 @@ Pull Requests opened from forks:
 https://binder.ploomber.io/v2/gh/USER/NAME/BRANCH?urlpath=path/to/notebook
 ```
 
-When testing the code: put yourself in the user's shoes (who has never executed this code) an ask yourself if it's clear what the new code is doing and how it can benefit them. These are some questions to ask yourself:
+When testing the code: put yourself in the user's shoes (who has never executed this code) and ask yourself if it's clear what the new code is doing and how it can benefit them. These are some questions to ask yourself:
 
 - Is this feature easy to discover? (e.g., via documentation)
 - Is the documentation clear for me to understand why should I care?
