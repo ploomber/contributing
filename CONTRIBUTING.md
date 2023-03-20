@@ -1,5 +1,9 @@
 # Contributing
 
+> **Note**
+> If you get stuck in the contribution process, send us a message on [Slack.](https://ploomber.io/community) and we'll help you.
+
+
 This is a general guide applicable to all our projects. However, there might be particular details on some repositories so check out the `CONTRIBUTING.md` for the project you're working on as well.
 
 For an introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/).
@@ -7,46 +11,172 @@ For an introduction to open-source contributions, check out our [blog post](http
 > **Note**
 > If you're contributing with documentation (API docs, tutorials, etc.), check out the [doc contribution](documentation/README.md) document.
 
-
 ## Setup
 
-All of our projects have a `tasks.py` file in the root directory that allows you to quickly setup your development environment. Note that this requires [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed. _Note_ you do not need to create a python environment beforehand, calling invoke setup will take care of this.
+> **Warning**
+> Some of our projects have a `tasks.py` file in the root directory (e.g., [Ploomber](https://github.com/ploomber/ploomber)), if that's the case for the project you want to contribute to, go to the [next section](#setup-projects-with-taskspy)
+
+Setting up your environment requires [miniconda](https://docs.conda.io/en/latest/miniconda.html), once installed, verify it's working with:
 
 ```sh
-pip install invoke
-
-invoke setup
+conda --help
 ```
+
+If `conda` is activated, you should see `(base)` as the prefix of your terminal prompt.
+
+
+Now, let's setup your development environment:
+
+```sh
+pip install pkgmt --upgrade
+
+# this command will create a conda environment for you
+pkgmt setup
+
+# if you want to build the documentation locally, pass --doc
+pkgmt setup --doc
+```
+
+Now, let's verify your [development installation.](#verifying-installation)
+
+## Setup (projects with `tasks.py`)
+
+
+If the project you want to contribute has a `tasks.py` file, follow these instructions.
+
+
+Setting up your environment requires [miniconda](https://docs.conda.io/en/latest/miniconda.html), once installed, verify it's working with:
+
+
+```sh
+conda --help
+```
+
+If `conda` is activated, you should see `(base)` as the prefix of your terminal prompt.
+
+Now, let's setup your development environment:
+
+```sh
+pip install invoke --upgrade
+
+# this command will setup the development environment
+invoke setup
+
+# if you want to build the documentation locally, pass --doc
+invoke setup --doc
+```
+
+There might be other commands available, to list them:
+
+```sh
+invoke --list
+```
+
+To get more information about a command:
+
+```sh
+invoke COMMAND --help
+```
+
+## Verifying installation
+
+At the end of the setup command, you'll see the name of the environment, activate it with:
+
+```sh
+conda activate ENVIRONMENT_NAME
+```
+
+To verify that your environment has been installed correctly, execute the following:
+
+```sh
+python -c 'import PACKAGE_NAME; print(PACKAGE_NAME)'
+```
+
+Substitute `PACKAGE_NAME` with the package you are contributing to; to get the package name, open the `src/` directory. For example in [JupySQL's case](https://github.com/ploomber/jupysql/tree/master/src), the package name is `sql`, so to verify the installation, we can execute:
+
+```sh
+python -c 'import sql; print(sql)'
+```
+
+The command above should print something like this:
+
+```python
+<module 'PACKAGE_NAME' from '/path/to/jupysql/src/PACKAGE_NAME/__init__.py'>
+```
+
+The printed path should match the location where you cloned the repository. Note that the `setup` command installs the package in "editable mode", which means that any changes to the source code will be reflected whenever you run the tests or use the package in a Python session, or Jupyter notebook (however, you must restart the Python session or Jupyter kernel for the changes to take effect).
+
+A common error happens when your package ends up installed in the conda environment, in such case, the output of previous command will look like this:
+
+```python
+<module 'PACKAGE_NAME' from '/path/to/miniconda3/envs/ENV_NAME/lib/python3.10/site-packages/PACKAGE_NAME/__init__.py'>
+```
+
+If your installation looks like that, try installing again or send us a message on [Slack.](https://ploomber.io/community)
+
+## Doc
+
+TODO: put setup and build doc instructions here, then link to the how we build docs section
+
+
+## Building docs locally
+
+We build the documentation on each Pull Request; however, you might run it locally for faster previews. We've standardized the setup process for the most part but send us a message on [Slack](https://ploomber.io/community) if you have issues.
+
+The steps are the same as in the [Setup](#setup), but you need to ensure you pass the `--doc` argument to the `pkgmt setup` (or `invoke setup`) command. Once you'r ready, ensure you activate the conda environment (printed at the end of the command):
+
+```sh
+conda activate ENVIRONMENT_NAME
+```
+
+To build the docs:
+
+```sh
+pip install pkgmt --upgrade
+pkgmt doc
+```
+
+In some cases, the documentation cache might cause issues, to perform a clean doc build:
+
+```sh
+pkgmt doc --clean
+```
+
+> **Warning**
+> If the project you're contributing to has a `tasks.py` file in the root directory (e.g., [Ploomber](https://github.com/ploomber/ploomber)), you must run `invoke doc` to build the docs. If you have issues, send us a message on [Slack.](https://ploomber.io/community). The source code for the `invoke` commands is in `tasks.py` so you might want to check it out as well.
+
+
+To learn more about writing docs, see [documentation/README.md](documentation/README.md)
 
 ## Coding
 
 ### Linting/Formatting
 
-
-We use [black](https://github.com/psf/black) for formatting code. *Please run black before submitting*. To apply black formatting:
+Before running the tests on GitHub, we lint the code, notebooks and documentation with `flake8`, if you want to check your code locally:
 
 ```sh
-pip install black
-
-black .
+pip install pkgmt --upgrade
+pkgmt lint
 ```
 
-We use [flake8](https://flake8.pycqa.org/en/latest/) for linting. *Please check your code with flake8 before submitting*:
+> **Note**
+> `pkgmt lint` is a wrapper around [`flake8`](https://flake8.pycqa.org/en/latest/) that lints `.py`, `.ipynb` and `.md` files.
+
+If you encounter errors, you need to fix them; otherwise your Pull Request will fail. Most errors can be fixed with automated formatting:
 
 ```sh
-pip install flake8
-
-flake8
+pip install pkgmt --upgrade
+pkgmt format
 ```
-*Note:* If you created a virtual env in a child directory, exclude it from `flake8` using the `--exclude` argument (e.g., `flake8 --exclude my-venv`).
 
-If you don't see any output after running `flake8`, you're good to go!
+> **Note**
+> `pkgmt lint` is a wrapper around [`black`](https://github.com/psf/black) and [`nbQA`](https://github.com/nbQA-dev/nbQA) that formats `.py`, `.ipynb` and `.md` files.
 
 
-To automatically run `flake8` before pushing:
+To automatically lint your code before pushing:
 
 ```sh
-pip install pkgmt
+pip install pkgmt --upgrade
 pkgmt hook
 ```
 
@@ -54,34 +184,6 @@ The command above will install a git pre-push hook. To uninstall:
 
 ```sh
 pkgmt hook --uninstall
-```
-
-If you want to do a one-time run (without installing the hook):
-
-```sh
-pkgmt hook --run
-```
-
-## Linting/Formatting notebooks
-
-Most of our documentation is written using Jupyter in serveral formats (`.ipynb`, `.md`, etc.). [nbQA](https://github.com/nbQA-dev/nbQA) allows running `flake8` and `black` on notebooks. `flake8` is run in the CI so you you must ensure that you don't have any errors before submitting a PR.
-
-Installation:
-
-```sh
-pip install nbqa jupytext
-```
-
-To run black:
-
-```sh
-nbqa black .
-```
-
-To run flake:
-
-```sh
-nbqa flake8 .
 ```
 
 ### Maintaining backwards compatibility
@@ -183,9 +285,33 @@ If the feature you're implementing requires extra packages, we might consider ad
 
 ## Testing
 
-* We use [pytest](https://docs.pytest.org/en/6.2.x/) for testing. A basic understanding of `pytest` is highly recommended to get started
-* In most cases, for a given in `src/ploomber/{module-name}`, there is a testing module in `tests/{module-name}`, if you're working on a particular module, you can execute the corresponding testing module for faster development but when submitting a pull request, all tests will run
+* We use [pytest](https://docs.pytest.org/en/7.2.x/) for testing. A basic understanding of `pytest` is highly recommended to get started, especially [fixtures](https://docs.pytest.org/en/7.2.x/fixture.html), [parametrization](https://docs.pytest.org/en/7.2.x/parametrize.html), and [debugging](https://docs.pytest.org/en/7.2.x/how-to/failures.html)
+* In most cases, for a given in `src/ploomber/MODULE_NAME`, there is a testing module in `tests/MODULE_NAME`, if you're working on a particular module, you can execute the corresponding testing module for faster development but when submitting a pull request, all tests will run
 * If you're checking error messages and they include absolute paths to files, you may encounter some issues when running the Windows CI since the Github Actions VM has some symlinks. If the test calls `Pathlib.resolve()` ([resolves symlinks](https://docs.python.org/3/library/pathlib.html#id5)), call it in the test as well, if it doesn't, use `os.path.abspath()` (does not resolve symlinks).
+
+Before running the unit tests locally, ensure you're in the right conda environment. To list environments:
+
+```sh
+conda env list
+```
+
+To activate an environment:
+
+```sh
+conda activate ENVIRONMENT_NAME
+```
+
+In most cases, to run the tests, you must run:
+
+```sh
+pytest
+```
+
+However, some projects require specific arguments, to know what's the right argument, check out the `.github/workflows` directory, where you'll find the configuration file for running tests (usually named `ci.yml`). There, you'll see how we're running tests. For example in JupySQL's case, we run [this command](https://github.com/ploomber/jupysql/blob/84c299624b97f743bdcef447292988e505f9d3e0/.github/workflows/ci.yaml#L39):
+
+```sh
+pytest --durations-min=5 --ignore=src/tests/integration
+```
 
 ## Pull Requests
 
