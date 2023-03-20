@@ -1,4 +1,4 @@
-# configuration file used to sync labels (see maintainer.md for more info)
+# configuration file used to sync labels (see ops.md for more info)
 
 - name: bug
   color: "d73a4a"
@@ -29,4 +29,29 @@
   color: "FBCA04"
   aliases: []
   description: Breaks existing API
+  delete: false
+
+
+# code owners
+
+- name: "Owner: Eduardo"
+  color: "5D9AF1"
+  aliases: []
+  delete: false
+
+
+- name: "Owner: Ido"
+  color: "5DE0F1"
+  aliases: []
+  delete: false
+
+
+- name: "Owner: Yafim"
+  color: "5DF1A0"
+  aliases: []
+  delete: false
+
+- name: "Owner: Tony"
+  color: "D6F15D"
+  aliases: []
   delete: false
