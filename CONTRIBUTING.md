@@ -1,7 +1,7 @@
 # Contributing
 
 > **Note**
-> If you get stuck in the contribution process, send us a message on [Slack.](https://ploomber.io/community) and we'll help you.
+> If you get stuck in the contribution process, send us a message on [Slack](https://ploomber.io/community) and we'll help you.
 
 
 This is a general guide applicable to all our projects. However, there might be particular details on some repositories so check out the `CONTRIBUTING.md` for the project you're working on as well.
@@ -114,12 +114,7 @@ A common error happens when your package ends up installed in the conda environm
 
 If your installation looks like that, try installing again or send us a message on [Slack.](https://ploomber.io/community)
 
-## Doc
-
-TODO: put setup and build doc instructions here, then link to the how we build docs section
-
-
-## Building docs locally
+## Building the documentation
 
 We build the documentation on each Pull Request; however, you might run it locally for faster previews. We've standardized the setup process for the most part but send us a message on [Slack](https://ploomber.io/community) if you have issues.
 
