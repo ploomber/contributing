@@ -62,9 +62,10 @@ To create a new tutorial, create a new Markdown document:
 
 Then double click on it and add this at the top (do not leave any empty lines):
 
-```md
+```yaml
 ---
 jupytext:
+  notebook_metadata_filter: myst
   text_representation:
     extension: .md
     format_name: myst

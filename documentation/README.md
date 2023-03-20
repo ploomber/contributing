@@ -96,40 +96,6 @@ If the build isn't successful, you'll see a ❌ instead of a ✅, clicking on de
 If it's unclear why the docs are failing, post a message in the PR with the link to the logs and we'll help you debugging.
 
 
-## Building docs locally
-
-You might also build docs locally. However, this is a bit challending since the documentation often requires installing many dependencies. We've standardized the process for the most part but send us a message on Slack if you have issues.
-
-First, you must have miniconda installed, then run:
-
-```sh
-pip install invoke
-```
-
-Then, install the development environment with:
-
-```sh
-invoke setup --doc
-```
-
-If you see an error, omit the `--doc` argument:
-
-```sh
-invoke setup
-```
-
-Upon running the command above, you'll see a message telling you how to activate the environment:
-
-```sh
-conda activate {env-name}
-```
-
-Once, the environment is activated, build the docs with:
-
-```sh
-invoke doc
-```
-
 ## Resources
 
 - [The documentation system](https://documentation.divio.com/)
