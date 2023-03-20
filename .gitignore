@@ -1,0 +1,4 @@
+# files created when installing the github label sync tool (described in maintainer.md)
+node_modules
+package-lock.json
+package.json
