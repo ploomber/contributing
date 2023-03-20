@@ -4,34 +4,34 @@
 
 ### `.md` files
 
+Add the following `myst` section:
+
 ```yaml
 ---
 jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.14.4
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
-html_meta:
-  description lang=en: "Some description"
-  keywords: "Key1, Key2"
-  property=og:locale: "en_US"  
+  # some existing metadata
+  ...
+
+myst:
+  html_meta:
+    description lang=en: "Some description"
+    keywords: "Key1, Key2"
+    property=og:locale: "en_US"
 ---
 ```
 
 ### `.ipynb` files
 
+Add the following `myst` section:
+
 ```json
 {
-    "html_meta": {
-        "description lang=en": "Description",
-        "keywords": "Key1, Key2",
-        "property=og:locale": "en_US"
+    "myst": {
+        "html_meta": {
+            "description lang=en": "Description",
+            "keywords": "Key1, Key2",
+            "property=og:locale": "en_US"
+        }
     }
 }
 ```
