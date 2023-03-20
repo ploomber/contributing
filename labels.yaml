@@ -1,0 +1,32 @@
+# configuration file used to sync labels (see maintainer.md for more info)
+
+- name: bug
+  color: "d73a4a"
+  aliases: []
+  description: Something isn't working
+  delete: false
+
+- name: documentation
+  color: "0075ca"
+  aliases: []
+  description: Improvements or additions to documentation
+  delete: false
+
+- name: good first issue
+  color: "7057ff"
+  aliases: []
+  description: Good for newcomers
+  delete: false
+
+- name: high priority
+  color: "0E8A16"
+  aliases: []
+  description: High priority
+  delete: false
+
+
+- name: API change
+  color: "FBCA04"
+  aliases: []
+  description: Breaks existing API
+  delete: false

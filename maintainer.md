@@ -120,3 +120,52 @@ git fetch upstream
 git checkout main
 git merge upstream/main
 ```
+
+## Sync GitHub labels
+
+To sync labels across repositories, we use [this tool](https://github.com/Financial-Times/github-label-sync).
+
+```sh
+# setup
+conda create --name label-sync nodejs
+conda activate label-sync
+npm install -g github-label-sync
+
+
+# pass the github token
+export GH_TOKEN=XXX
+
+# pass the repository
+export REPO=ploomber/ploomber-engine
+
+# sync labels: pass --dry-run to do a test, remove the flag once you're sure
+github-label-sync --access-token $GH_TOKEN \
+    $REPO  --labels labels.yaml --dry-run
+```
+
+## Checklist
+
+This is a checklist of thiings we need to routinely verify:
+
+- Unit tests in the CI should run with the `pytest` command (no arguments), if arguments are needed you can [add them to the `pyproject.toml`file](https://docs.pytest.org/en/7.1.x/reference/customize.html) (The exception are repositories where we have unit and integration tests separated, for example, in JupySQL's case, where we have different configurations)
+- Broken links should be checked using `pkgmt check-links`
+- Unit testing from Python 3.8 until 3.11 on Linux, macOS, and Windows
+- Lint with `pkgmt lint` (this runs `black` and `nbqa`)
+- There must be a [Pull Request template](https://github.com/ploomber/jupysql/blob/master/.github/pull_request_template.md)
+- Read the docs must be configured to build docs on each Pull Request
+- `pkgmt setup` must install development dependencies (alternatively, there must be a `tasks.py` file with a `setup` command)
+- `pkgmt doc`  must build docs (alternatively, there must be a `tasks.py` file with a `setup` command)
+
+If anything is missing, open a GitHub issue in the corresponding repository.
+
+## Maintained projects
+
+- [JupySQL](https://github.com/ploomber/jupysql)
+- [Ploomber](https://github.com/ploomber/ploomber)
+- [ploomber-engine](https://github.com/ploomber/ploomber-engine)
+- [Soopervisor](https://github.com/ploomber/soopervisor)
+- [sklearn-evaluation](https://github.com/ploomber/sklearn-evaluation)
+- [pkgmt](https://github.com/ploomber/pkgmt)
+- [Jupyblog](https://github.com/ploomber/jupyblog)
+- [ploomber-core](https://github.com/ploomber/core)
+- [debuglater](https://github.com/ploomber/debuglater)
