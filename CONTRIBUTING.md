@@ -116,6 +116,9 @@ If your installation looks like that, try installing again or send us a message 
 
 ## Building the documentation
 
+> **Note**
+> If you have issues building the documentation, send us a message on [Slack.](https://ploomber.io/community) and we'll help you.
+
 We build the documentation on each Pull Request; however, you might run it locally for faster previews. We've standardized the setup process for the most part but send us a message on [Slack](https://ploomber.io/community) if you have issues.
 
 The steps are the same as in the [Setup](#setup), but you need to ensure you pass the `--doc` argument to the `pkgmt setup` (or `invoke setup`) command. Once you'r ready, ensure you activate the conda environment (printed at the end of the command):
