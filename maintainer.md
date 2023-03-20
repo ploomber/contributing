@@ -1,5 +1,81 @@
-# Maintainer guide
+# Maintainer's guide
 
+This guide documents the process for code maintainers (people who review, approve and/or merge Pull Requests).
+
+## Roles
+
+- **Reviewer:** Performs code reviews for Pull Request; their objective is to ensure code quality
+- **Owner:** Reviews code, ensures that Pull Requests do not get stalled, clicks the  *merge* button, and is responsible for ensuring the that we ship functional, high-quality code
+### Which one am I?
+
+- You're a reviewer if someone from the team has requested your review on GitHub
+- You're an owner if the `Owner: YourName` label has been applied to the GitHub issue or Pull Request
+
+> **Note**
+> A contributor cannot be the owner of their Pull Request
+
+## Reviewer/Owner checklist
+
+When performing a code review, verify the following:
+
+- The code meets the quality bar: the code is clear, and documented (docstrings)
+- Unit tests have been added and they're rigorously testing the code changes
+
+Owners also have the following responsibilities:
+
+- An appropriate [CHANGELOG](CONTRIBUTING.md#changelog) entry has been added (when needed)
+- New features are documented: either a [docstring example](https://sklearn-evaluation.ploomber.io/en/latest/api/plot.html#confusionmatrix) (for minor features) or a full [tutorial](https://jupysql.ploomber.io/en/latest/integrations/duckdb.html) (major features)
+- If breaking API changes are introduced, a PR is merged with a [deprecation warning](CONTRIBUTING.md#maintaining-backwards-compatibility), and Eduardo/Ido are notified that a new release is required
+- If breaking API changes are introduced: a [major version bump](CONTRIBUTING.md#maintaining-backwards-compatibility) is performed
+- Ensure that all CI checks passed before merging a Pull Request
+- If the CI fails, provide guidance to the contributor. If you suspect the CI is broken due an external factor (e.g., a dependency that its API), send a message on Slack
+- If the Pull Request does not meet the quality bar, address it with concrete action items to the contributor
+- Run [quality assurance](#quality-assurance) and use your best judgment to determine if this is ready to be merged to the main branch
+
+## Quality assurance
+
+The easiest way to test code contributions is via Binder (a hosted JupyterLab). When
+reviewing a pull request, click on the [documentation link](documentation/README.md#previewing-docs).
+
+If the Pull Request is introducing a new feature that includes an interactive
+tutorial, navigate to it. If not, stay in the home page.
+
+Launch Binder by clicking on the 🚀 button at the top, then click on "Binder":
+
+![binder button](documentation/assets/binder-button.png)
+
+Once it loads, you'll be able to test the code from the Pull Request.
+
+
+**Note:** If Binder is misconfigured (i.e., does not load or the code does not match the Pull Request), let us know. Also, always verify the link to ensure there isn't any misconfiguration. The format is:
+
+Pull Requests opened from branches in the original repository
+
+```
+https://binder.ploomber.io/v2/gh/ploomber/NAME/BRANCH?urlpath=path/to/notebook
+```
+
+Pull Requests opened from forks:
+
+```
+https://binder.ploomber.io/v2/gh/USER/NAME/BRANCH?urlpath=path/to/notebook
+```
+
+When testing the code: put yourself in the user's shoes (who has never run this new code) an ask yourself if it's clear what the new code is doing and how it can benefit them. These are some questions to ask yourself:
+
+- Is this feature easy to discover? (e.g., via documentation)
+- Is the documentation clear enough for me to understan why should I care about this?
+- Is it easy to get started using this?
+- When things break under simple scenarios, is it easy to know how to fix it/ask for help? (we encourage you to break the code to see how easy it is to do it!)
+- Is the API consistent? Verify if there might be potential issues with existing features or if the new code itself is inconsistent (e.g., there are no naming conventions, confusing parameter names) 
+
+> **Note**
+> If you consider that that there are missing parts in the PR, 
+> use your best jugment to determine if those missing pieces are critical (e.g., unclear
+> documentation, inconsistent API) or not (e.g., documentation could be a bit clearer,
+> some extra examples needed). In the former case, we should not merge the PR, but in
+> the latter case we should merge it and you can open a new issue to discuss further
+> improvements.
 
 ## Continuous integration
 
@@ -42,27 +118,6 @@ the PR.
 - `[minor]` - Release a new minor version
 - `[major]` - Release a new major version
 
-## Releasing
-
-*Note: this describes the steps to upload to PyPI. However, they will be automated in a GitHub Action*
-
-We ship changes rapidly. This means that we do not wait for changes to accumulate before
-releasing. A minor fix is enough to make a new release. Once a PR is merged, the
-`master`/`main` branch passes. We can tag a new release with the following command:
-
-```sh
-invoke version
-```
-
-This will ask us to confirm the version number and then proceed to tag the commit and
-push it.
-
-`invoke version` will also run a few checks before creating a tagged commit:
-
-- Check there are no pending deprecations (e.g., if we said we'd remove function `do_something` in version `1.0`, such function should not appear in a release tagged as `1.0`)
-- Check that `.. versionchanged::` and `.. versionadded::` are correct (they point to either the current release or previous releases)
-- If making a new minor release, check that there are no `[API Change]` changes in the CHANGELOG
-
 ## Planning for a major version release
 
 We avoid unnecessary changes that break the API; however, sometimes, we have to do it.
@@ -80,92 +135,3 @@ changes.
 Once we make a new major release, we merge the branch to `master`/`main` and follow the
 release process.
 
-## Conda releases (`conda-forge`)
-
-Some of our packages are available in conda (via [conda-forge](https://conda-forge.org/)). The recipes are located here:
-
-* [ploomber](https://github.com/conda-forge/ploomber-feedstock)
-* [ploomber-scaffold](https://github.com/conda-forge/ploomber-scaffold-feedstock)
-* [ploomber-engine](https://github.com/conda-forge/ploomber-engine-feedstock)
-* [debuglater](https://github.com/conda-forge/debuglater-feedstock)
-
-When uploading a new version to PyPI, the conda-forge bot automatically opens a PR to the feedstocks; upon approval, the new versions are available to install via `conda install ploomber --channel conda-forge`.
-
-Note that conda-forge implements a CI pipeline that checks that the recipe works. Thus, under most circumstances, the PR will pass. One exception is when adding new dependencies to `setup.py`; in such a case, we must manually edit the recipe (`meta.yml`) and open a PR to the feedstock. See the next section for details.
-
-Note that [it takes some time](https://conda-forge.org/docs/maintainer/maintainer_faq.html#mfaq-anaconda-delay) for packages to be available for download.
-
-To check if packages are available: `conda search ploomber --channel cf-staging`. Pending packages will appear in channel [`cf-staging`](https://conda-forge.org/docs/maintainer/infrastructure.html#output-validation-and-feedstock-tokens) while available packages in `conda-forge`. It usually takes less than one hour for packages to move from one to the other.
-
-### Manually updating the conda recipe
-
-If `conda-forge`'s bot PR fails (usually because a new dependency was added), we must submit a PR ourselves:
-
-1. [Fork feedstock repository](https://github.com/conda-forge/ploomber-feedstock)
-2. Clone it: `git clone https://github.com/{your-user}/ploomber-feedstock` (change `your-user`)
-3. Create a new branch: `git checkout -b branch-name`
-4. Update recipe (`meta.yaml`):
-    * Update the version in the `{% set version = "version" %}` line
-    * Update `source.sha256`, you can get that from `https://pypi.org/project/{package-name}/{version}/#files`, just change the `{package-name}`,`{version}`, and copy the SHA256 hash from the `.tar.gz` file
-    * If there are new dependencies (or new constraints), add them to `requirements.run`
-5. You may need to run `conda smithy rerender -c auto` ([click here for details](https://conda-forge.org/docs/maintainer/updating_pkgs.html#rerendering-feedstocks))
-
-[More details here](https://conda-forge.org/docs/maintainer/updating_pkgs.html)
-
-If you already forked the repository, you can sync with the original repository like this:
-
-```sh
-git remote add upstream https://github.com/conda-forge/ploomber-feedstock
-git fetch upstream
-git checkout main
-git merge upstream/main
-```
-
-## Sync GitHub labels
-
-To sync labels across repositories, we use [this tool](https://github.com/Financial-Times/github-label-sync).
-
-```sh
-# setup
-conda create --name label-sync nodejs
-conda activate label-sync
-npm install -g github-label-sync
-
-
-# pass the github token
-export GH_TOKEN=XXX
-
-# pass the repository
-export REPO=ploomber/ploomber-engine
-
-# sync labels: pass --dry-run to do a test, remove the flag once you're sure
-github-label-sync --access-token $GH_TOKEN \
-    $REPO  --labels labels.yaml --dry-run
-```
-
-## Checklist
-
-This is a checklist of thiings we need to routinely verify:
-
-- Unit tests in the CI should run with the `pytest` command (no arguments), if arguments are needed you can [add them to the `pyproject.toml`file](https://docs.pytest.org/en/7.1.x/reference/customize.html) (The exception are repositories where we have unit and integration tests separated, for example, in JupySQL's case, where we have different configurations)
-- Broken links should be checked using `pkgmt check-links`
-- Unit testing from Python 3.8 until 3.11 on Linux, macOS, and Windows
-- Lint with `pkgmt lint` (this runs `black` and `nbqa`)
-- There must be a [Pull Request template](https://github.com/ploomber/jupysql/blob/master/.github/pull_request_template.md)
-- Read the docs must be configured to build docs on each Pull Request
-- `pkgmt setup` must install development dependencies (alternatively, there must be a `tasks.py` file with a `setup` command)
-- `pkgmt doc`  must build docs (alternatively, there must be a `tasks.py` file with a `setup` command)
-
-If anything is missing, open a GitHub issue in the corresponding repository.
-
-## Maintained projects
-
-- [JupySQL](https://github.com/ploomber/jupysql)
-- [Ploomber](https://github.com/ploomber/ploomber)
-- [ploomber-engine](https://github.com/ploomber/ploomber-engine)
-- [Soopervisor](https://github.com/ploomber/soopervisor)
-- [sklearn-evaluation](https://github.com/ploomber/sklearn-evaluation)
-- [pkgmt](https://github.com/ploomber/pkgmt)
-- [Jupyblog](https://github.com/ploomber/jupyblog)
-- [ploomber-core](https://github.com/ploomber/core)
-- [debuglater](https://github.com/ploomber/debuglater)

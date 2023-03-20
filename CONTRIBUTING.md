@@ -186,11 +186,17 @@ pkgmt hook --uninstall
 
 ### Maintaining backwards compatibility
 
-We keep backwards compatibility for one major release, if we've made a major release recently, we might keep it backwards compatibility for two major releases.
+When breaking the API, we give heads up nnotice to our users so they have enough time to update their code. This involves showing warnings letting them know that a certain feature will be deprecated.
 
-A major release is a bump in the middle number in `X.Y.Z`. For example, if we deprecate a function (this means we'll show a warning is somebody uses it), make a release (say, `0.5`), we'll remove the function in version `0.6`.
+We currently do not have a strict policy so we review cases on a case-by-case basis, but a good rule of thumb is to give at least a month's notice. This implies that Code Owners should ensure that we the appropriate deprecation warnings are adde and released to our users as soon as we decide that we'll break the API.
 
 To deprecate code, use the [module in `ploomber-core`.](https://ploomber-core.readthedocs.io/en/latest/deprecation.html)
+
+> **Note**
+> ploomber-core must be used for deprecations in most cases. The only exception are some JupySQL modules where we manually show exceptions using the `warnings` module since the API is a [Jupyter magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which is currently not compatible with ploomber-core.
+
+
+When the API is changed, we must bump to a major version release. A major release is a bump in the middle number in `X.Y.Z`. For example, if our current development version is `0.1.3dev`, we work on adding the deprecation warnings and make the  `0.1.3` release, then, the PR that breaks the API should ensure that the development version is set to `0.2.0dev` in the `CHANGELOG` and `__init__.py` file.
 
 ### Documenting changes and new features
 
