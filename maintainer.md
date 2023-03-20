@@ -10,10 +10,18 @@ This guide documents the process for code maintainers.
 ### Which one am I?
 
 - You're a reviewer if someone from the team has requested your review on GitHub
-- You're an owner if the `Owner: YourName` label has been applied to the GitHub issue or Pull Request
+- You're an owner if the `Owner: YourFirstName` label has been applied to the GitHub issue or Pull Request
 
 > **Note**
 > A contributor cannot be the owner of their Pull Request
+
+Currently, we're testing this with some members of the team (in alphabetical order):
+
+- [Issues/PRs owner by Eduardo](https://github.com/issues?q=is%3Aopen+org%3Aploomber+label%3A%22Owner%3A+Eduardo%22)
+- [Issues/PRs owner by Ido](https://github.com/issues?q=is%3Aopen+org%3Aploomber+label%3A%22Owner%3A+Ido%22)
+- [Issues/PRs owner by Tony](https://github.com/issues?q=is%3Aopen+org%3Aploomber+label%3A%22Owner%3A+Tony%22)
+- [Issues/PRs owner by Yafim](https://github.com/issues?q=is%3Aopen+org%3Aploomber+label%3A%22Owner%3A+Yafim%22)
+
 
 ## Reviewer/Owner checklist
 
