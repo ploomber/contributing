@@ -1,11 +1,12 @@
 # Maintainer's guide
 
-This guide documents the process for code maintainers (people who review, approve and/or merge Pull Requests).
+This guide documents the process for code maintainers.
 
 ## Roles
 
-- **Reviewer:** Performs code reviews for Pull Request; their objective is to ensure code quality
+- **Reviewer:** Performs code reviews for Pull Requests; their objective is to ensure code quality
 - **Owner:** Reviews code, ensures that Pull Requests do not get stalled, clicks the  *merge* button, and is responsible for ensuring the that we ship functional, high-quality code
+
 ### Which one am I?
 
 - You're a reviewer if someone from the team has requested your review on GitHub
@@ -25,9 +26,10 @@ Owners also have the following responsibilities:
 
 - An appropriate [CHANGELOG](CONTRIBUTING.md#changelog) entry has been added (when needed)
 - New features are documented: either a [docstring example](https://sklearn-evaluation.ploomber.io/en/latest/api/plot.html#confusionmatrix) (for minor features) or a full [tutorial](https://jupysql.ploomber.io/en/latest/integrations/duckdb.html) (major features)
-- If breaking API changes are introduced, a PR is merged with a [deprecation warning](CONTRIBUTING.md#maintaining-backwards-compatibility), and Eduardo/Ido are notified that a new release is required
+- If breaking API changes are introduced, a PR is merged with a [deprecation warning](CONTRIBUTING.md#maintaining-backwards-compatibility)
 - If breaking API changes are introduced: a [major version bump](CONTRIBUTING.md#maintaining-backwards-compatibility) is performed
 - Ensure that all CI checks passed before merging a Pull Request
+- [Only applicable for PRs from external contributors] Approve CI executions (when an external contributor opens a PR, someone from the team needs to approve the CI run by clicking on a button)
 - If the CI fails, provide guidance to the contributor. If you suspect the CI is broken due an external factor (e.g., a dependency that its API), send a message on Slack
 - If the Pull Request does not meet the quality bar, address it with concrete action items to the contributor
 - Run [quality assurance](#quality-assurance) and use your best judgment to determine if this is ready to be merged to the main branch
@@ -47,9 +49,9 @@ Launch Binder by clicking on the 🚀 button at the top, then click on "Binder":
 Once it loads, you'll be able to test the code from the Pull Request.
 
 
-**Note:** If Binder is misconfigured (i.e., does not load or the code does not match the Pull Request), let us know. Also, always verify the link to ensure there isn't any misconfiguration. The format is:
+**Note:** If Binder is misconfigured (i.e., does not load or the code does not match the Pull Request), let us know. Also, always verify the link you're clicking to ensure there isn't any misconfiguration, the format is as follows:
 
-Pull Requests opened from branches in the original repository
+For Pull Requests opened from branches in the original repository
 
 ```
 https://binder.ploomber.io/v2/gh/ploomber/NAME/BRANCH?urlpath=path/to/notebook
@@ -61,16 +63,16 @@ Pull Requests opened from forks:
 https://binder.ploomber.io/v2/gh/USER/NAME/BRANCH?urlpath=path/to/notebook
 ```
 
-When testing the code: put yourself in the user's shoes (who has never run this new code) an ask yourself if it's clear what the new code is doing and how it can benefit them. These are some questions to ask yourself:
+When testing the code: put yourself in the user's shoes (who has never executed this code) an ask yourself if it's clear what the new code is doing and how it can benefit them. These are some questions to ask yourself:
 
 - Is this feature easy to discover? (e.g., via documentation)
-- Is the documentation clear enough for me to understan why should I care about this?
-- Is it easy to get started using this?
-- When things break under simple scenarios, is it easy to know how to fix it/ask for help? (we encourage you to break the code to see how easy it is to do it!)
+- Is the documentation clear for me to understand why should I care?
+- Is it easy to get started?
+- When things break under simple scenarios, is it easy to know how to fix it/ask for help? (we encourage you to break the code!)
 - Is the API consistent? Verify if there might be potential issues with existing features or if the new code itself is inconsistent (e.g., there are no naming conventions, confusing parameter names) 
 
 > **Note**
-> If you consider that that there are missing parts in the PR, 
+> If you consider that there are missing parts in the PR, 
 > use your best jugment to determine if those missing pieces are critical (e.g., unclear
 > documentation, inconsistent API) or not (e.g., documentation could be a bit clearer,
 > some extra examples needed). In the former case, we should not merge the PR, but in
