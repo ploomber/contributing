@@ -4,32 +4,98 @@
 > If you get stuck in the contribution process, send us a message on [Slack](https://ploomber.io/community) and we'll help you.
 
 
-This is a general guide applicable to all our projects. However, there might be particular details on some repositories so check out the `CONTRIBUTING.md` for the project you're working on as well.
+This is a general guide applicable to all our projects (JupySQL, Ploomber, sklearn-evaluation, ploomber-engine, etc.). However, there might be particular details on some repositories so check out the `CONTRIBUTING.md` for the project you're working on as well.
 
 For an introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/).
 
+TODO: mention what the objective is (editable mode, edit code, experiment locally)
+
 > **Note**
-> If you're contributing with documentation (API docs, tutorials, etc.), check out the [doc contribution](documentation/README.md) document.
+> If you're contributing with documentation (API docs, tutorials, etc.), check out the [doc contribution](documentation/README.md) document as well.
+
+## Pre-requisites
+
+Setting up your environment requires [miniconda](https://docs.conda.io/en/latest/miniconda.html), once installed, verify it's working with:
+
+```sh
+conda --version
+```
+
+If `conda` is activated, you should see `(base)` as the prefix of your terminal prompt.
+
+You also need `git`, ensure it's working by running the following:
+
+```sh
+git --version
+```
+
+Continue once `conda` and `git` are working.
+
+## Creating a `conda` environment
+
+Each Ploomber project you contribute we'll live in a separate `conda` environment,
+so let's first create a base environment to manage the others.
+
+Create a `ploomber-base` environment:
+
+```sh
+conda create --name ploomber-base python=3.10 --yes
+```
+
+Activate the environment and install `pkgmt`:
+
+```sh
+conda activate ploomber-base
+pip install pkgmt --upgrade
+```
+
+Verify installation:
+
+```sh
+pkgmt --help
+```
+
+If you don't see any errors, continue. Otherwise, message us on [Slack](https://ploomber.io/community)
+
+## Forking and cloning the repository
+
+To contribute to one of our projects, you need to fork it by clicking on this button:
+
+TODO
+
+Then, click on "Create fork"
+
+TODO
+
+This will create a copy of the repository under your user name:
+
+```
+https://github.com/YOUR_USERNAME/REPOSITORY_NAME
+```
+
+Once you forked it, use the terminal to clone the repository:
+
+```
+git clone https://github.com/YOUR_USERNAME/REPOSITORY_NAME
+```
 
 ## Setup
 
 > **Warning**
 > Some of our projects have a `tasks.py` file in the root directory (e.g., [Ploomber](https://github.com/ploomber/ploomber)), if that's the case for the project you want to contribute to, go to the [next section](#setup-projects-with-taskspy)
 
-Setting up your environment requires [miniconda](https://docs.conda.io/en/latest/miniconda.html), once installed, verify it's working with:
+TODO: move to the cloned fork.
+
+
+Now, let's setup your development environment. First, activate your base environment:
 
 ```sh
-conda --help
+conda activate ploomber-base
 ```
 
-If `conda` is activated, you should see `(base)` as the prefix of your terminal prompt.
-
-
-Now, let's setup your development environment:
+Now, let's install the dependencies:
 
 ```sh
-pip install pkgmt --upgrade
-
 # this command will create a conda environment for you
 pkgmt setup
 
@@ -37,24 +103,35 @@ pkgmt setup
 pkgmt setup --doc
 ```
 
-Now, let's verify your [development installation.](#verifying-installation)
+By the end of the `pkgmt setup` command, you'll see something like this:
+
+```sh
+conda activate ENV_NAME
+```
+
+This is because the `pkgmt setup` command will create another conda environment that's
+configured to contribute to the project you forked.
+
+Before continuing, ensure you activate the environment:
+
+```sh
+conda activate ENV_NAME
+```
+
+> **Note**
+> You have to repeat this process for every project you contribute to. For example,
+> if you start contributing to [JupySQL](https://github.com/ploomber/jupysql), and
+> then you are contributing to
+> [ploomber-engine](https://github.com/ploomber/ploomber-engine), you'll have to setup
+> again.
+
+Now, let's configure your [IDE (e.g., JupyterLab, VSCode)](#configuring-your-ide)
 
 ## Setup (projects with `tasks.py`)
 
-
 If the project you want to contribute has a `tasks.py` file, follow these instructions.
 
-
-Setting up your environment requires [miniconda](https://docs.conda.io/en/latest/miniconda.html), once installed, verify it's working with:
-
-
-```sh
-conda --help
-```
-
-If `conda` is activated, you should see `(base)` as the prefix of your terminal prompt.
-
-Now, let's setup your development environment:
+Let's setup your development environment:
 
 ```sh
 pip install invoke --upgrade
@@ -66,53 +143,107 @@ invoke setup
 invoke setup --doc
 ```
 
-There might be other commands available, to list them:
+By the end of the `invoke setup` command, you'll see something like this:
 
 ```sh
-invoke --list
+conda activate ENV_NAME
 ```
 
-To get more information about a command:
+This is because the `invoke setup` command will create another conda environment that's
+configured to contribute to the project you forked.
+
+Before continuing, ensure you activate the environment:
 
 ```sh
-invoke COMMAND --help
+conda activate ENV_NAME
 ```
 
-## Verifying installation
+> **Note**
+> You have to repeat this process for every project you contribute to. For example,
+> if you start contributing to [JupySQL](https://github.com/ploomber/jupysql), and
+> then you are contributing to
+> [ploomber-engine](https://github.com/ploomber/ploomber-engine), you'll have to setup
+> again.
 
-At the end of the setup command, you'll see the name of the environment, activate it with:
+
+Now, let's configure your [IDE (e.g., JupyterLab, VSCode)](#configuring-your-ide)
+## Configuring your IDE
+
+This section will show you how to configure your IDE. First, open a terminal and
+activate the environment for the project you'll be working on:
 
 ```sh
-conda activate ENVIRONMENT_NAME
+conda environment ENV_NAME
 ```
+### Verifying conda environment
 
-To verify that your environment has been installed correctly, execute the following:
+Now, execute the following:
 
 ```sh
-python -c 'import PACKAGE_NAME; print(PACKAGE_NAME)'
+python -c 'import sys; print(sys.prefix)'
 ```
 
-Substitute `PACKAGE_NAME` with the package you are contributing to; to get the package name, open the `src/` directory. For example in [JupySQL's case](https://github.com/ploomber/jupysql/tree/master/src), the package name is `sql`, so to verify the installation, we can execute:
+You should see something like this if you installed miniconda:
+
+```txt
+path/to/miniconda3/envs/ENV_NAME/bin/python
+```
+
+Or like this, if you installed Anaconda:
+
+```txt
+path/to/anaconda3/envs/ENV_NAME/bin/python
+```
+
+> **Warning**
+> If the output does not contain `miniconda` or `anaconda`, send us a message on
+> [Slack](https://ploomber.io/community) and we'll help you.
+
+
+- [Click here](#jupyterlab) if you'll be using JupyterLab for contributing
+- [Click here](#vscode) if you'll be using VSCode for contributing
+
+### JupyterLab
+
+> **Warning**
+> Starting JupyterLab from another environment or Anaconda's graphical user
+> interface might create issues. We highly recommend you install and start JupyterLab
+> from the same conda environment, as described below.
+
+If you want to use JupyterLab for developing, ensure you install and start it from
+the same conda environment:
 
 ```sh
-python -c 'import sql; print(sql)'
+# activate environment
+conda activate ENV_NAME
+
+# install JupyterLab
+pip install jupyterlab
+
+# start JupyterLab
+jupyter lab
 ```
 
-The command above should print something like this:
+Once JupyterLab opens, open a notebook, a terminal:
+
+![notebook-and-terminal](documentation/assets/lab-notebook-and-terminal.png)
+
+And run the following, in the notebook:
 
 ```python
-<module 'PACKAGE_NAME' from '/path/to/jupysql/src/PACKAGE_NAME/__init__.py'>
+import sys; print("sys.prefix:", sys.prefix)
 ```
 
-The printed path should match the location where you cloned the repository. Note that the `setup` command installs the package in "editable mode", which means that any changes to the source code will be reflected whenever you run the tests or use the package in a Python session, or Jupyter notebook (however, you must restart the Python session or Jupyter kernel for the changes to take effect).
+Verify that the printed value is the same as you saw in the
+[Verifying conda environment](#verifying-conda-environment) section.
 
-A common error happens when your package ends up installed in the conda environment, in such case, the output of previous command will look like this:
 
-```python
-<module 'PACKAGE_NAME' from '/path/to/miniconda3/envs/ENV_NAME/lib/python3.10/site-packages/PACKAGE_NAME/__init__.py'>
-```
+> **Warning**
+> Once a package is imported in Jupyter, changes to the source code are not
+> automatically reflected. You need to restart the kernel or enable
+> [autoreload](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html)
 
-If your installation looks like that, try installing again or send us a message on [Slack.](https://ploomber.io/community)
+### VSCode
 
 ## Building the documentation
 
@@ -124,7 +255,7 @@ We build the documentation on each Pull Request; however, you might run it local
 The steps are the same as in the [Setup](#setup), but you need to ensure you pass the `--doc` argument to the `pkgmt setup` (or `invoke setup`) command. Once you'r ready, ensure you activate the conda environment (printed at the end of the command):
 
 ```sh
-conda activate ENVIRONMENT_NAME
+conda activate ENV_NAME
 ```
 
 To build the docs:
@@ -302,7 +433,7 @@ conda env list
 To activate an environment:
 
 ```sh
-conda activate ENVIRONMENT_NAME
+conda activate ENV_NAME
 ```
 
 In most cases, to run the tests, you must run:
