@@ -5,13 +5,13 @@ This guide describes how to write notebook tutorials from Jupyter.
 First, move to the repository you're contributing to and install invoke:
 
 ```sh
-pip install invoke
+pip install pkgmt --upgrade
 ```
 
 Now, configure the development environment (you must have miniconda installed):
 
 ```sh
-invoke setup
+pkgmt setup
 ```
 
 At the end of the command, you should see the name of the environment, activate it with:
