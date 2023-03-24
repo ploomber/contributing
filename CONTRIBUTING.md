@@ -4,11 +4,11 @@
 > If you get stuck in the contribution process, send us a message on [Slack](https://ploomber.io/community) and we'll help you.
 
 
-This is a general guide applicable to all our projects (JupySQL, Ploomber, sklearn-evaluation, ploomber-engine, etc.). However, there might be particular details on some repositories so check out the `CONTRIBUTING.md` for the project you're working on as well.
+This is a general guide applicable to all our projects (JupySQL, Ploomber, sklearn-evaluation, ploomber-engine, etc.). However, there might be particular details in some repositories so check out the `CONTRIBUTING.md` (located in the root directory) for the project you want to contribute to.
 
-For an introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/).
+For a more detailed introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/).
 
-TODO: mention what the objective is (editable mode, edit code, experiment locally)
+This guide will help you configure your development environment; by the end of it, you'll be able to make changes to the code (or documentation), test them locally, and prepare your changes for a Pull Request.
 
 > **Note**
 > If you're contributing with documentation (API docs, tutorials, etc.), check out the [doc contribution](documentation/README.md) document as well.
@@ -61,13 +61,13 @@ If you don't see any errors, continue. Otherwise, message us on [Slack](https://
 
 To contribute to one of our projects, you need to fork it by clicking on this button:
 
-TODO
+![fork-button](documentation/assets/fork-button.png)
 
 Then, click on "Create fork"
 
-TODO
+![fork-button](documentation/assets/fork-confirm.png)
 
-This will create a copy of the repository under your user name:
+This will create a copy of the repository under your username:
 
 ```
 https://github.com/YOUR_USERNAME/REPOSITORY_NAME
@@ -75,17 +75,22 @@ https://github.com/YOUR_USERNAME/REPOSITORY_NAME
 
 Once you forked it, use the terminal to clone the repository:
 
-```
+```sh
 git clone https://github.com/YOUR_USERNAME/REPOSITORY_NAME
 ```
+
 
 ## Setup
 
 > **Warning**
 > Some of our projects have a `tasks.py` file in the root directory (e.g., [Ploomber](https://github.com/ploomber/ploomber)), if that's the case for the project you want to contribute to, go to the [next section](#setup-projects-with-taskspy)
 
-TODO: move to the cloned fork.
 
+First, ensure your current directory is the folder where you cloned the repository. For example if using Linux or macOS:
+
+```sh
+cd REPOSITORY_NAME
+```
 
 Now, let's setup your development environment. First, activate your base environment:
 
@@ -96,11 +101,11 @@ conda activate ploomber-base
 Now, let's install the dependencies:
 
 ```sh
-# this command will create a conda environment for you
-pkgmt setup
-
 # if you want to build the documentation locally, pass --doc
 pkgmt setup --doc
+
+# this command will create a conda environment for you
+pkgmt setup
 ```
 
 By the end of the `pkgmt setup` command, you'll see something like this:
@@ -136,11 +141,11 @@ Let's setup your development environment:
 ```sh
 pip install invoke --upgrade
 
-# this command will setup the development environment
-invoke setup
-
 # if you want to build the documentation locally, pass --doc
 invoke setup --doc
+
+# this command will setup the development environment
+invoke setup
 ```
 
 By the end of the `invoke setup` command, you'll see something like this:
@@ -175,6 +180,8 @@ activate the environment for the project you'll be working on:
 ```sh
 conda environment ENV_NAME
 ```
+
+**Important:** Take note on the `ENV_NAME`, since we'll need this value later.
 ### Verifying conda environment
 
 Now, execute the following:
@@ -235,20 +242,67 @@ import sys; print("sys.prefix:", sys.prefix)
 ```
 
 Verify that the printed value is the same as you saw in the
-[Verifying conda environment](#verifying-conda-environment) section.
+[Verifying conda environment](#verifying-conda-environment) section (the `ENV_NAME`).
 
+
+Now, open a terminal and run the following:
+
+```sh
+python -c 'import sys; print("sys.prefix:", sys.prefix)'
+```
+
+Then, ensure that what's printed is `ENV_NAME`; if it's not, then you'll have to
+run `conda activate ENV_NAME` every time you open a terminal.
 
 > **Warning**
 > Once a package is imported in Jupyter, changes to the source code are not
 > automatically reflected. You need to restart the kernel or enable
 > [autoreload](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html)
 
+
+If you'll be contributing with code, go to the [Coding](#coding) section, if you'll
+be contributing with documentation, go to the
+[Building documentation](#building-documentation) section.
 ### VSCode
 
-## Building the documentation
+When using VSCode, you must ensure that you're using the right Python installation.
+You can easily set this by opening the
+[command paletter](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette),
+then typing `Python: Select Interpreter`:
+
+
+![vscode-1-py-interpreter](documentation/assets/vscode-1-py-interpreter.png)
+
+Then, type the `ENV_NAME`. For example, if I'm
+setting up JupySQL, `ENV_NAME` is `jupysql`, so once I type it, I'll see this:
+
+
+![vscode-2-env-name](documentation/assets/vscode-2-env-name.png)
+
+And type enter. Then, whenever you open a terminal, the conda environment will be automatically activated:
+
+![vscode-3-terminal](documentation/assets/vscode-3-terminal.png)
+
+If it doesn't execute automatically, you'll have to run the `conda activate ENV_NAME` command every time you open a terminal.
+
+#### VSCOde notebooks
+
+If you want to write notebooks from VSCode, you need to ensure that the right kernel is enabled. Once you open a notebook, click on "Select Kernel":
+
+![vscode-4-kernel](documentation/assets/vscode-4-kernel.png)
+
+Then, select the `Python Environments...` option and type Enter:
+
+![vscode-5-kernel-name](documentation/assets/vscode-5-kernel-name.png)
+
+Finally, type the `ENV_NAME`, choose the option that matches the location of the conda environment and press Enter:
+
+![vscode-6-kernel-select](documentation/assets/vscode-6-kernel-select.png)
+
+## Building documentation
 
 > **Note**
-> If you have issues building the documentation, send us a message on [Slack.](https://ploomber.io/community) and we'll help you.
+> If you have issues building the documentation, send us a message on [Slack](https://ploomber.io/community) and we'll help you.
 
 We build the documentation on each Pull Request; however, you might run it locally for faster previews. We've standardized the setup process for the most part but send us a message on [Slack](https://ploomber.io/community) if you have issues.
 
