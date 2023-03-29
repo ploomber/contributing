@@ -8,3 +8,4 @@ dependencies:
   - pip
   - pip:
     - jupyter-book
+    - pydata-sphinx-theme<0.13.2
