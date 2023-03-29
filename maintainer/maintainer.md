@@ -28,7 +28,7 @@ Currently, we're testing this with some members of the team (in alphabetical ord
 When performing a code review, verify the following:
 
 - Unit tests have been added and they're rigorously testing the code changes
-- An appropriate [CHANGELOG](CONTRIBUTING.md#changelog) entry has been added (when needed)
+- An appropriate [CHANGELOG](../contributing/coding.md#changelog) entry has been added (when needed)
 - The code meets the quality bar
     - Re-usable (e.g., abstracts common patterns in functions)
     - Clear (i.e., descriptive variable names, inline comments when needed) - this also applies to unit tests
@@ -36,8 +36,8 @@ When performing a code review, verify the following:
 
 Owners also have the following responsibilities:
 
-- If breaking API changes are introduced, a PR is merged with a [deprecation warning](CONTRIBUTING.md#maintaining-backwards-compatibility)
-- If breaking API changes are introduced: a [major version bump](CONTRIBUTING.md#maintaining-backwards-compatibility) is performed
+- If breaking API changes are introduced, a PR is merged with a [deprecation warning](../contributing/coding.md#maintaining-backwards-compatibility)
+- If breaking API changes are introduced: a [major version bump](../contributing/coding.md#maintaining-backwards-compatibility) is performed
 - Ensure that all CI checks passed before merging a Pull Request
 - [Only applicable for PRs from external contributors] Approve CI executions (when an external contributor opens a PR, someone from the team needs to approve the CI run by clicking on a button)
 - If the CI fails, provide guidance to the contributor. If you suspect the CI is broken due an external factor (e.g., a dependency that its API), send a message on Slack
@@ -47,14 +47,14 @@ Owners also have the following responsibilities:
 ## Quality assurance
 
 The easiest way to test code contributions is via Binder (a hosted JupyterLab). When
-reviewing a pull request, click on the [documentation link](documentation/README.md#previewing-docs).
+reviewing a pull request, click on the [documentation link](../maintainer/doc-guide.md#previewing-docs).
 
 If the Pull Request is introducing a new feature that includes an interactive
 tutorial, navigate to it. If not, stay in the home page.
 
 Launch Binder by clicking on the 🚀 button at the top, then click on "Binder":
 
-![binder button](documentation/assets/binder-button.png)
+![binder button](../assets/binder-button.png)
 
 Once it loads, you'll be able to test the code from the Pull Request.
 

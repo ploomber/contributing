@@ -13,17 +13,17 @@ We can classify the resource types into four groups:
 
 The following sections describe each group in more detail.
 
-### Getting started
+## Getting started
 
 We write these tutorials as Jupyter notebooks; this makes authoring easier and allows users to download and try them with Binder. The language should be pretty straightforward, and we should omit non-essential details; the objective here is to teach the absolute basics.
 
 Depending on the project, sometimes we might decide to have a single notebook be the "Getting started" tutorial; other times, we might have multiple ones, for example, one for each module.
 
-#### Guidelines
+### Guidelines
 
 doc/requirements.txt (or doc/environment.yml) should contain all the dependencies required to run the notebooks with notes specifying if a specific library is only used for a particular notebook so we can remove it if we remove the notebook.
 
-### User Guide
+## User Guide
 
 The User Guide aims to bring the user to a proficiency level where they feel comfortable with the library. After learning the User Guide, they should be able to perform tasks, tweak the simplest parameters, and understand the project's structure.
 
@@ -31,7 +31,7 @@ As with "Getting Started", these are Jupyter notebooks, and we'll decide on a ca
 
 In cases where the library requires technical concepts (sklearn-evaluation is an excellent example since the docs assume it is familiar with Machine Learning concepts), the User Guide should explain these concepts. Explaining concepts in detail and with clarity will help us acquire users via search engines like Google.
 
-### How-to
+## How-to
 
 These are code snippets that users can copy-paste. We should pay attention to finding common patterns; once we identify them, we can create snippets and add them to the How-To so users can quickly find them and get things done.
 
@@ -39,7 +39,7 @@ A great idea to find patterns is to search on Stack Overflow for popular questio
 
 If the recipes are simple, they should be included in the docstrings of the relevant functions/classes (and they [should be tested as part of the CI](https://docs.pytest.org/en/7.1.x/how-to/doctest.html)). When the recipes are more ellaborated (e.g., they require some setup that needs explanation, other packages, or multiple modules), we can create a *How-To guide* section in the documentation and add them as notebooks.
 
-### API Reference
+## API Reference
 
 - All public functions and methods should be documented. We use the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format
 - At least one example (that users can copy paste) should be provided
@@ -64,7 +64,7 @@ Sections should be hyperlinked. For example, the API reference should link to th
 
 ### Notebooks (applies to Getting Started and User Guide)
 
-> For instructions on setting up your environment for writing notebooks, see [notebooks.md](notebooks.md)
+> For instructions on setting up your environment for writing notebooks, [click here](../documentation/notebooks.md)
 
 - Notebooks should not hide any important details (e.g., hiding cells) since users are expected to copy and paste the code on them
 - In some cases (e.g., when output is too verbose), we might decide to hide some outputs, but we should be cautious of these
@@ -83,15 +83,15 @@ The deprecation piece is currently manual, so in case you've added those flags, 
 
 The easiest way to preview your docs is to open a draft Pull Request. Each PR triggers a pull request so after a few minutes of opening it, you'll see it at the bottom:
 
-![link](assets/docs-link.png)
+![link](../assets/docs-link.png)
 
 To preview the docs, click on `Details` on the right side of the `docs/readthedocs.org:{pkg-name}` job, or click in the link that's automatically added to the first comment:
 
-![link](assets/docs-status.png)
+![link](../assets/docs-status.png)
 
 If the build isn't successful, you'll see a ❌ instead of a ✅, clicking on details will take you to the logs:
 
-![link](assets/docs-error.png)
+![link](../assets/docs-error.png)
 
 If it's unclear why the docs are failing, post a message in the PR with the link to the logs and we'll help you debugging.
 

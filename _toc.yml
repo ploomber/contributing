@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Contributing
+    chapters:
+      - file: contributing/setup
+      - file: contributing/ide
+      - file: contributing/coding      
+
+  - caption: Writing documentation
+    chapters:
+      - file: documentation/notebooks
+      - file: documentation/build-doc
+      - file: documentation/formatting
+      - file: documentation/seo
+      - file: documentation/debugging
+
+  - caption: Maintainer
+    chapters:
+      - file: maintainer/maintainer
+      - file: maintainer/ops
+      - file: maintainer/conda-forge
+      - file: maintainer/ci
+      - file: maintainer/cd
+      - file: maintainer/jupyter-book
+      - file: maintainer/readthedocs
+      - file: maintainer/doc-guide

@@ -1,28 +1,18 @@
 # Writing notebooks
 
-This guide describes how to write notebook tutorials from Jupyter.
+## Setup
 
-First, move to the repository you're contributing to and install invoke:
+First, setup your environment according to the [Setup](../contributing/setup.md#setup) instructions.
 
-```sh
-pip install pkgmt --upgrade
-```
+## Installing extra dependencies
 
-Now, configure the development environment (you must have miniconda installed):
-
-```sh
-pkgmt setup
-```
-
-At the end of the command, you should see the name of the environment, activate it with:
+Now, activate your environment:
 
 ```sh
 conda activate {env-name}
 ```
 
-## Runnable notebooks
-
-With your environment activated, run the following:
+And run the following:
 
 ```sh
 pip install jupyterlab jupytext
@@ -36,7 +26,7 @@ jupyter lab
 
 Once JupyterLab starts, you'll see the file navigator on the left. Tutorials are always located in the `doc/` directory:
 
-![files](assets/notebooks-files.png)
+![files](../assets/notebooks-files.png)
 
 To automatically reload your changes to the code in an existing notebook, run this before any import statements:
 
@@ -47,18 +37,18 @@ To automatically reload your changes to the code in an existing notebook, run th
 
 This way, you don't have to restart the kernel with every change. Note that this approach has some quirks, you might need to restart the kernel in some situations.
 
-### Editing an existing notebook
+## Editing an existing notebook
 
 We store the notebooks in `.md` format; however, you can open them as notebooks:
 
-![files](assets/notebooks-open.png)
+![files](../assets/notebooks-open.png)
 
-### Creating a new notebook
+## Creating a new notebook
 
 To create a new tutorial, create a new Markdown document:
 
 
-![files](assets/notebooks-markdown.png)
+![files](../assets/notebooks-markdown.png)
 
 Then double click on it and add this at the top (do not leave any empty lines):
 
@@ -80,4 +70,6 @@ kernelspec:
 
 Then, close the file and open it as a notebook as shown in the [Editing an existing notebook section.](#editing-an-existing-notebook)
 
+```{important}
 Remember to add your notebook to `doc/_toc.yml` to ensure it's included in the documentation.
+```

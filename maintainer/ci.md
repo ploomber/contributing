@@ -1,3 +1,5 @@
+# CI
+
 `.github/workflows/scheduled.yml`
 
 ```yaml

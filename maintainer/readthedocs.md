@@ -1,3 +1,5 @@
+# Readthedocs
+
 This is the default configuration we use:
 
 ```yaml

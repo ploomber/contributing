@@ -38,7 +38,7 @@ Add the following `myst` section:
 
 To open the metadata editor:
 
-![jupyter-metadata](assets/jupyter-metadata.png)
+![jupyter-metadata](../assets/jupyter-metadata.png)
 
 ### `.rst` files
 
