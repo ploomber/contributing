@@ -44,3 +44,7 @@ sphinx:
 ```
 
 However, this setting makes the doc building process too strict.
+
+## Build docs on PRs
+
+[See here.](https://github.com/readthedocs/actions/tree/main/preview)
