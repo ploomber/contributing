@@ -33,6 +33,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  announcement: 'Help us keep this guide accurate. If you encounter any problems, <a href="https://github.com/ploomber/contributing/issues/new">open an issue.</a>'
 
 
 sphinx:

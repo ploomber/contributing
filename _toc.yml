@@ -8,7 +8,8 @@ parts:
     chapters:
       - file: contributing/setup
       - file: contributing/ide
-      - file: contributing/coding      
+      - file: contributing/coding
+      - file: contributing/troubleshooting
 
   - caption: Writing documentation
     chapters:
