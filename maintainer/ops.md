@@ -2,26 +2,51 @@
 
 This document exaplains the processes to keep our shipping process up and running.
 
-## Releasing
+## Versioning
 
-*Note: this describes the steps to upload to PyPI. However, they will be automated in a GitHub Action*
-
-We ship changes rapidly. This means that we do not wait for changes to accumulate before
-releasing. A minor fix is enough to make a new release. Once a PR is merged, the
-`master`/`main` branch passes. We can tag a new release with the following command:
+To create a new release version:
 
 ```sh
-invoke version
+pkgmt version
 ```
 
-This will ask us to confirm the version number and then proceed to tag the commit and
-push it.
+This will ask us to confirm the version number and then proceed to tag the commit and push it.
 
-`invoke version` will also run a few checks before creating a tagged commit:
+`pkgmt version` will also run a few checks before creating a tagged commit:
 
 - Check there are no pending deprecations (e.g., if we said we'd remove function `do_something` in version `1.0`, such function should not appear in a release tagged as `1.0`)
 - Check that `.. versionchanged::` and `.. versionadded::` are correct (they point to either the current release or previous releases)
 - If making a new minor release, check that there are no `[API Change]` changes in the CHANGELOG
+
+
+## Releasing
+
+```{note}
+In some projects, we've automated the release process, to learn more, see [Continuous Delivery](#continuous-delivery).
+```
+
+To upload a package to PyPI, execute:
+
+```sh
+pkgmt release VERSION
+```
+
+Where `VERSION` is the version to release. By default, this command uploads to PyPI's test server, to upload to the production server:
+
+```sh
+pkgmt release VERSION --production
+```
+
+## Continuous Delivery
+
+In some packages, we've automated the release process. You can see a sample GitHub Actions workflow in the `sample-github-workflows/` directory in this repository. It looks for tagged commits and runs `pkgmt release VERSION`.
+
+## GitHub Actions workflows
+
+We have a few workflows to automate tasks, you can find the templates in the in the `sample-github-workflows/` directory in this repository.
+
+- `chatops.yml`: triggers certain actions when posting specific comments in a PR
+- `changelog.yml`: comments on a PR if the `CHANGELOG.md` file hasn't been updated
 
 ## Conda releases (`conda-forge`)
 
