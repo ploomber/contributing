@@ -6,7 +6,7 @@ author: Ploomber
 # logo: logo.png
 
 
-exclude_patterns: [_notes/*]
+exclude_patterns: [_notes/*, README.md]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
