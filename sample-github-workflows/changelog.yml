@@ -5,7 +5,9 @@
 # Based on: https://dev.to/zirkelc/trigger-github-workflow-for-comment-on-pull-request-45l2
 name: changelog-edited
 
-on: pull_request
+on:
+  pull_request:
+    types: [review_requested]
 
 jobs:
  changelog-edited:
