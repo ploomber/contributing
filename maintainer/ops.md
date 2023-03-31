@@ -126,6 +126,7 @@ This is a checklist of things we need to routinely verify:
 - Read the docs must be configured to build docs on each Pull Request
 - `pkgmt setup` must install development dependencies (alternatively, there must be a `tasks.py` file with a `setup` command)
 - `pkgmt doc`  must build docs (alternatively, there must be a `tasks.py` file with a `setup` command)
+- Ensure we have [tag protections](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) for *all tags*
 
 If anything is missing, open a GitHub issue in the corresponding repository.
 
