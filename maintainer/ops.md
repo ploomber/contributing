@@ -41,6 +41,8 @@ pkgmt release VERSION --production
 
 In some packages, we've automated the release process. You can see a sample GitHub Actions workflow in the `sample-github-workflows/` directory in this repository. It looks for tagged commits and runs `pkgmt release VERSION`.
 
+Currently enabled in: `pkgmt`, `ploomber-core`.
+
 ## GitHub Actions workflows
 
 We have a few workflows to automate tasks, you can find the templates in the in the `sample-github-workflows/` directory in this repository.
