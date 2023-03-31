@@ -4,6 +4,10 @@ This document exaplains the processes to keep our shipping process up and runnin
 
 ## Versioning
 
+```{important}
+Only repository administrators can execute this process.
+```
+
 To create a new release version:
 
 ```sh
@@ -20,6 +24,10 @@ This will ask us to confirm the version number and then proceed to tag the commi
 
 
 ## Releasing
+
+```{important}
+Only repository administrators can execute this process.
+```
 
 ```{note}
 In some projects, we've automated the release process, to learn more, see [Continuous Delivery](#continuous-delivery).
@@ -39,9 +47,22 @@ pkgmt release VERSION --production
 
 ## Continuous Delivery
 
-In some packages, we've automated the release process. You can see a sample GitHub Actions workflow in the `sample-github-workflows/` directory in this repository. It looks for tagged commits and runs `pkgmt release VERSION`.
+```{important}
+Only repository administrators can execute this process.
+```
 
-Currently enabled in: `pkgmt`, `ploomber-core`.
+We've auomated uploading to PyPI in some projects (`pkgmt`, `ploomber-core`).
+
+To make a new release, move to the `master` (or `main`) branch in a local copy of the git repository and execute:
+
+```sh
+pkgmt version
+```
+
+The command will ask for confirmation. Once confirmed, it'll push a new commit and a git tag; then, a GitHub action that's looking for tagged commits will pick it up, it all tests pass, the version will be uploaded to PyPI.
+
+You can see a sample GitHub Actions workflow [here](https://github.com/ploomber/contributing/blob/main/sample-github-workflows/ci.yml).
+
 
 ## GitHub Actions workflows
 
