@@ -98,3 +98,15 @@ We use GitHub Actions to test our projects. Each one should test against these c
 - [Documentation preview](https://github.com/readthedocs/actions/tree/v1/preview)
 - General checks (via `pkgmt check`)
 - Multiprocessing the tests via [pytest-xdist](https://github.com/pytest-dev/pytest-xdist)
+
+## Subscribing to updates
+
+
+Get the RSS URL for a project:
+
+
+```
+https://pypi.org/rss/project/NAME/releases.xml
+```
+
+Then, generate an action with something like [IFTTT](https://ifttt.com) to email you.
