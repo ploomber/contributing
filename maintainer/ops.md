@@ -59,7 +59,7 @@ To make a new release, move to the `master` (or `main`) branch in a local copy o
 pkgmt version
 ```
 
-The command will ask for confirmation. Once confirmed, it'll push a new commit and a git tag; then, a GitHub action that's looking for tagged commits will pick it up, it all tests pass, the version will be uploaded to PyPI.
+The command will ask for confirmation. Once confirmed, it'll push a new commit and a git tag; then, if all tests pass, the version will be uploaded to PyPI.
 
 You can see a sample GitHub Actions workflow [here](https://github.com/ploomber/contributing/blob/main/sample-github-workflows/ci.yml).
 
