@@ -95,6 +95,7 @@ If the change breaks the API, the version will be handled case by case. However,
 
 ## CHANGELOG
 
+
 Each repository contains a `CHANGELOG` file in the root directory. Each PR should
 contain a list of items, so we keep it up-to-date. Note that the `CHANGELOG` targets
 end-users (while `git log` targets the Ploomber development team); this implies
@@ -123,6 +124,13 @@ If there is an issue related to the change, it should be added to the end:
 
 Note that we're not adding the link to GitHub, this will happen automatically during the release process.
 
+```{tip}
+We want to recognize your work: If you wish, you can add your GitHub handle next to your changelog entry! Example:
+
+~~~md
+- [Feature] Add a very important feature (by @edublancas)
+~~~
+```
 
 ## Rules of thumb for CHANGELOG messages
 
