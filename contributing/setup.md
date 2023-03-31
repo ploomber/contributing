@@ -4,13 +4,16 @@
 If you get stuck in the contribution process, send us a message on [Slack](https://ploomber.io/community) and we'll help you.
 ```
 
-
 This is a general guide applicable to all our projects (JupySQL, Ploomber, sklearn-evaluation, ploomber-engine, etc.). However, there might be particular details in some repositories so check out the `CONTRIBUTING.md` (located in the root directory) for the project you want to contribute to.
 
 For a more detailed introduction to open-source contributions, check out our [blog post](https://ploomber.io/blog/open-source/).
 
-This guide will help you configure your development environment, a pre-requisite for contributing code (bug fixes, new features) or documentation improvements; by the end, you'll be able to make changes to the code (or documentation), test them locally, and prepare your changes for a Pull Request.
+This guide will help you:
 
+1. Configure your development environment (necessary for both code and documentation contributions)
+2. Crete a local copy of the project you'll contribute to
+
+By the end of this tutorial, you'll be able to make changes to the code (or documentation), and test them locally.
 ## Pre-requisites
 
 Setting up your environment requires [miniconda](https://docs.conda.io/en/latest/miniconda.html), once installed, verify it's working with:
@@ -125,7 +128,7 @@ conda activate ENV_NAME
 You have to repeat this process for every project you contribute to. For example, if you start contributing to [JupySQL](https://github.com/ploomber/jupysql), and then you are contributing to [ploomber-engine](https://github.com/ploomber/ploomber-engine), you'll have to setup again.
 ```
 
-Now, let's configure your [IDE (e.g., JupyterLab, VSCode)](ide)
+Now, let's check your [fork and IDE settings.](coding)
 
 ## Setup (projects with `tasks.py`)
 
@@ -163,5 +166,5 @@ You have to repeat this process for every project you contribute to. For example
 ```
 
 
-Now, let's configure your [IDE (e.g., JupyterLab, VSCode)](ide)
+Now, let's check your [fork and IDE settings.](coding)
 

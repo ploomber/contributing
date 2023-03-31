@@ -1,203 +1,168 @@
 
 # Coding
 
-## Linting/Formatting
+```{important}
+This tutorial assumes you have a [working development environment.](setup.md)
+```
 
-Before running the tests on GitHub, we lint the code, notebooks and documentation with `flake8`, if you want to check your code locally:
+In this tutorial, we'll show you how to ensure everything is ready for you to start contributing.
+## Syncing your fork
+
+In the [](setup.md) tutorial, you forked the repository you'll contribute to. Before starting to code it's important to ensure that the main branch in your fork is synced with the main branch in the original repository. To do so, click on sync fork:
+
+![sync-fork](../assets/sync-fork.png)
+
+If you have problems syncing your fork, [message us on Slack.](https://ploomber.io/community)
+## Creating a new branch
+
+
+Now, let's create a new branch. Move to the directory that contains your fork and create a new branch:
 
 ```sh
-pip install pkgmt --upgrade
-pkgmt lint
+git checkout -b my-new-branch
 ```
-
-```{note}
-`pkgmt lint` is a wrapper around [`flake8`](https://flake8.pycqa.org/en/latest/) that lints `.py`, `.ipynb` and `.md` files.
-```
-
-If you encounter errors, you need to fix them; otherwise your Pull Request will fail. Most errors can be fixed with automated formatting:
-
-```sh
-pip install pkgmt --upgrade
-pkgmt format
-```
-
-```{note}
-`pkgmt format` is a wrapper around [`black`](https://github.com/psf/black) and [`nbQA`](https://github.com/nbQA-dev/nbQA) that formats `.py`, `.ipynb` and `.md` files.
-```
-
-
-To automatically lint your code before pushing:
-
-```sh
-pip install pkgmt --upgrade
-pkgmt hook
-```
-
-The command above will install a git pre-push hook. To uninstall:
-
-```sh
-pkgmt hook --uninstall
-```
-
-## Maintaining backwards compatibility
-
-When breaking the API, we give heads up nnotice to our users so they have enough time to update their code. This involves showing warnings letting them know that a certain feature will be deprecated.
-
-We currently do not have a strict policy so we review cases on a case-by-case basis, but a good rule of thumb is to give at least a month's notice. This implies that Code Owners should ensure that the contributor opens a new PR with deprecation warnings, we merge the PR, and make a new release (by notifying Eduardo or Ido). This process should be prioritized so we make a release as soon as we decide that we'll break the API.
-
-To deprecate code, use the [module in `ploomber-core`.](https://ploomber-core.readthedocs.io/en/latest/deprecation.html)
-
-> **Note**
-> ploomber-core must be used for deprecations in most cases. The only exception are some JupySQL modules where we manually show exceptions using the `warnings` module since the API is a [Jupyter magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which is currently not compatible with ploomber-core.
-
-
-When the API is changed, we must bump to a major version release. A major release is a bump in the middle number in `X.Y.Z`. For example, if our current development version is `0.1.3dev`, the first step is to add the deprecation warnings and make the  `0.1.3` release, then, in the PR that breaks the API, we should ensure that the development version is set to `0.2.0dev` in the `CHANGELOG` and `__init__.py` file.
-
-## Documenting changes and new features
-
-The documentation must be updated when you make changes to the API (add arguments, add a new class, etc.) (we use the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format).
-
-We keep track of API changes in the the `Notes` section, by using the `.. versionadded` directive for new classes, functions, or methods.
-
-For example, if we added `SomeClass` in version `1.2` and `some_method` in `1.3`:
-
-```python
-class SomeClass:
-    """
-    Notes
-    -----
-    .. versionadded:: 1.2
-    """
-    def some_method(self, existing, new):
-        """
-        Parameters
-        ----------
-        existing : bool, default=None
-            Some description
-
-        new : str, default=None
-            Another description (Added in version X.Y.Z)
-
-        Notes
-        ----
-        .. versionadded:: 1.3
-        """
-        pass
-```
-
-Apart from docstrings, we often write tutorials and examples, for more information, check out our [documentation framework.](../maintainer/doc-guide.md)
-
-### Which version to put?
-
-If your change is not making breaking API changes, look at the current development version in the `CHANGELOG.md` file, then drop the `dev` portion.
-
-If the change breaks the API, the version will be handled case by case. However, in most situations, the change will be scheduled for the next major release. For example, if the `dev` version is `0.20.1dev`, the next major release is `0.21`.
-
-## CHANGELOG
-
-
-Each repository contains a `CHANGELOG` file in the root directory. Each PR should
-contain a list of items, so we keep it up-to-date. Note that the `CHANGELOG` targets
-end-users (while `git log` targets the Ploomber development team); this implies
-that there might be changes that we don't include in the `CHANGELOG`, but they exist
-in the `git log`, for example changes to the CI configuration, new tests
-added/fixed.
-
-These are changes that we add to the `CHANGELOG` (in this order):
-
-- [API Change] API breaking changes
-- [Feature] New features
-- [Fix] Bug fixes
-- [Doc] Important documentation changes (e.g., new sections, major re-organization)
-
-Each new line in the `CHANGELOG` must be prefixed by its category. Example:
-
-```md
-- [Fix] Fixes an error that caused function `do_something` to break when passing `0` as input
-```
-
-If there is an issue related to the change, it should be added to the end:
-
-```md
-- [Fix] Fixes an error that caused function `do_something` to break when passing `0` as input (#99)
-```
-
-Note that we're not adding the link to GitHub, this will happen automatically during the release process.
 
 ```{tip}
-We want to recognize your work: If you wish, you can add your GitHub handle next to your changelog entry! Example:
-
-~~~md
-- [Feature] Add a very important feature (by @edublancas)
-~~~
+Change `my-new-branch` for a descriptive name that reflects what this branch is about.
 ```
 
-## Rules of thumb for CHANGELOG messages
-
-Keep in mind this guidelines when writing changelog messages:
+All the code changes that you do will take place in this new branch. Let's now verify your IDE configuration.
 
 
-- Use full sentences
-    - Example: [Fix] Fix an error that caused the function `do_something` to break when passing `0` as an input
-- Appropriately identify modules, functions or classes affect with backticks (`) and write the name exactly as it appears on the source code (do not use abbreviations)
-    - Example: [Feature] Add `some_module.Report` to generate reports from profiling data
+## Committing your work
 
-## Telemetry
+commit as much as you want
 
-To measure usage, we add telemetry to our packages. See the [user guide.](https://ploomber-core.readthedocs.io/en/latest/telemetry.html)
+it won't destroy anything
 
-## Optional dependencies
+once you're ready to shwo your work, open a PR
 
-If the feature you're implementing requires extra packages, we might consider adding them as optional dependencies. [Check out the guide.](https://ploomber-core.readthedocs.io/en/latest/dependencies.html)
-
-## Testing
-
-* We use [pytest](https://docs.pytest.org/en/7.2.x/) for testing. A basic understanding of `pytest` is highly recommended to get started, especially [fixtures](https://docs.pytest.org/en/7.2.x/fixture.html), [parametrization](https://docs.pytest.org/en/7.2.x/parametrize.html), and [debugging](https://docs.pytest.org/en/7.2.x/how-to/failures.html)
-* In most cases, for a given in `src/ploomber/MODULE_NAME`, there is a testing module in `tests/MODULE_NAME`, if you're working on a particular module, you can execute the corresponding testing module for faster development but when submitting a pull request, all tests will run
-* If you're checking error messages and they include absolute paths to files, you may encounter some issues when running the Windows CI since the Github Actions VM has some symlinks. If the test calls `Pathlib.resolve()` ([resolves symlinks](https://docs.python.org/3/library/pathlib.html#id5)), call it in the test as well, if it doesn't, use `os.path.abspath()` (does not resolve symlinks).
-
-Before running the unit tests locally, ensure you're in the right conda environment. To list environments:
-
-```sh
-conda env list
+```{tip}
+We encourage you to start working on your contribution and open a draft Pull Request to request early feedback, this will helps us ensure we're on the same page.
 ```
 
-To activate an environment:
+## Verifying conda environment
+
+First, open a terminal and activate the environment for the project you'll be working on:
 
 ```sh
+conda environment ENV_NAME
+```
+
+```{important}
+Take note on the `ENV_NAME`, since we'll need this value later.
+```
+
+Now, execute the following:
+
+```sh
+python -c 'import sys; print(sys.prefix)'
+```
+
+You should see something like this if you installed miniconda:
+
+```
+path/to/miniconda3/envs/ENV_NAME/bin/python
+```
+
+Or like this, if you installed Anaconda:
+
+```
+path/to/anaconda3/envs/ENV_NAME/bin/python
+```
+
+```{warning}
+If the output does not contain `miniconda` or `anaconda`, send us a message on [Slack](https://ploomber.io/community) and we'll help you.
+```
+
+
+- [Click here](#jupyterlab) for JupyterLab instructions
+- [Click here](#vscode) for VSCode instructions
+
+## JupyterLab
+
+
+```{warning}
+Starting JupyterLab from another environment or Anaconda's graphical user interface might create issues. We highly recommend you install and start JupyterLab from the same conda environment, as described below.
+```
+
+If you want to use JupyterLab for developing, ensure you install and start it from
+the same conda environment:
+
+```sh
+# activate environment
 conda activate ENV_NAME
+
+# install JupyterLab
+pip install jupyterlab
+
+# start JupyterLab
+jupyter lab
 ```
 
-In most cases, to run the tests, you must run:
+Once JupyterLab opens, open a notebook, a terminal:
+
+![notebook-and-terminal](../assets/lab-notebook-and-terminal.png)
+
+And run the following, in the notebook:
+
+```python
+import sys; print("sys.prefix:", sys.prefix)
+```
+
+Verify that the printed value is the same as you saw in the
+[Verifying conda environment](#verifying-conda-environment) section (the `ENV_NAME`).
+
+
+Now, open a terminal and run the following:
 
 ```sh
-pytest
+python -c 'import sys; print("sys.prefix:", sys.prefix)'
 ```
 
-However, some projects require specific arguments, to know what's the right argument, check out the `.github/workflows` directory, where you'll find the configuration file for running tests (usually named `ci.yml`). There, you'll see how we're running tests. For example in JupySQL's case, we run [this command](https://github.com/ploomber/jupysql/blob/84c299624b97f743bdcef447292988e505f9d3e0/.github/workflows/ci.yaml#L39):
+Then, ensure that what's printed is `ENV_NAME`; if it's not, then you'll have to
+run `conda activate ENV_NAME` every time you open a terminal.
 
-```sh
-pytest --durations-min=5 --ignore=src/tests/integration
+```{warning}
+Once a package is imported in Jupyter, changes to the source code are not automatically reflected. You need to restart the kernel or enable [autoreload](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html)
 ```
 
-## Pull Requests
+If you'll be contributing with code, go to the [Coding](../contributing/coding.md) section, if you'll
+be contributing with documentation, go to the
+[Building documentation](../documentation/build-doc.md) section.
 
-We receive contributions via Pull Requests (PRs). [We recommend you check out this guide.](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
+## VSCode
+
+When using VSCode, you must ensure that you're using the right Python installation.
+You can easily set this by opening the
+[command paletter](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette),
+then typing `Python: Select Interpreter`:
 
 
-When you have finished the feature development and you are ready for a Code Review (a.k.a Pull Request in Github), make sure you `"squash"` the commits in your development branch before creating a PR.
+![vscode-1-py-interpreter](../assets/vscode-1-py-interpreter.png)
+
+Then, type the `ENV_NAME`. For example, if I'm
+setting up JupySQL, `ENV_NAME` is `jupysql`, so once I type it, I'll see this:
 
 
-> [What is `git rebase`](https://www.delftstack.com/tutorial/git/git-rebase/#what-is-git-rebase)
+![vscode-2-env-name](../assets/vscode-2-env-name.png)
 
-```
-$ git rebase -i <-i for interactive>
+And type enter. Then, whenever you open a terminal, the conda environment will be automatically activated:
 
-# "squash" the command history
-# for example
+![vscode-3-terminal](../assets/vscode-3-terminal.png)
 
-pick commit_hash_1 commit_message_1
-s    commit_hash_2 commit_message_2
-s    commit_hash_3 commit_message_3
-s    commit_hash_4 commit_message_4
-```
+If it doesn't execute automatically, you'll have to run the `conda activate ENV_NAME` command every time you open a terminal.
+
+### VSCode notebooks
+
+If you want to write notebooks from VSCode, you need to ensure that the right kernel is enabled. Once you open a notebook, click on "Select Kernel":
+
+![vscode-4-kernel](../assets/vscode-4-kernel.png)
+
+Then, select the `Python Environments...` option and type Enter:
+
+![vscode-5-kernel-name](../assets/vscode-5-kernel-name.png)
+
+Finally, type the `ENV_NAME`, choose the option that matches the location of the conda environment and press Enter:
+
+![vscode-6-kernel-select](../assets/vscode-6-kernel-select.png)

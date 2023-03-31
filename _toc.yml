@@ -7,16 +7,15 @@ parts:
   - caption: Contributing
     chapters:
       - file: contributing/setup
-      - file: contributing/ide
       - file: contributing/coding
+      - file: contributing/pr
       - file: contributing/troubleshooting
 
   - caption: Writing documentation
     chapters:
+      - file: documentation/formatting
       - file: documentation/notebooks
       - file: documentation/build-doc
-      - file: documentation/formatting
-      - file: documentation/seo
       - file: documentation/debugging
 
   - caption: Maintainer

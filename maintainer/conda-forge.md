@@ -1,4 +1,4 @@
-# Conda-forge
+# `conda-forge`
 
 Some of our packages are available on conda-forge. To upload a new package, follow the instructions [(longer version here)](https://conda-forge.org/docs/maintainer/adding_pkgs.html#generating-the-recipe):
 

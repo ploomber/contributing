@@ -1,4 +1,4 @@
-# Writing notebooks
+# Writing tutorials
 
 ## Setup
 

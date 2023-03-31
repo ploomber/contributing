@@ -5,15 +5,20 @@ If your PR is failing, use this troubleshooting guide.
 
 ## Unit tests failing
 
-First, ensure that the [linting passes.](../contributing/coding.md#lintingformatting)
+First, ensure that the [linting passes.](pr.md#lintingformatting)
 
 
-If you see linting errors, fix them or run the [formatting command.](../contributing/coding.md#lintingformatting)
+If you see linting errors, fix them or run the [formatting command.](pr.md#lintingformatting)
 
 
 ## Documentation
 
 If your PR is failing due to documentation errors, [see here.](../documentation/debugging.md)
+
+## Merge conflicts
+
+[See here.](pr.md#fixing-merge-conflicts)
+
 
 ## Other
 

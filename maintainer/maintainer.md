@@ -28,7 +28,7 @@ Currently, we're testing this with some members of the team (in alphabetical ord
 When performing a code review, verify the following:
 
 - Unit tests have been added and they're rigorously testing the code changes
-- An appropriate [CHANGELOG](../contributing/coding.md#changelog) entry has been added (when needed)
+- An appropriate [CHANGELOG](../contributing/pr.md#changelog) entry has been added (when needed)
 - The code meets the quality bar
     - Re-usable (e.g., abstracts common patterns in functions)
     - Clear (i.e., descriptive variable names, inline comments when needed) - this also applies to unit tests
@@ -36,8 +36,8 @@ When performing a code review, verify the following:
 
 Owners also have the following responsibilities:
 
-- If breaking API changes are introduced, a PR is merged with a [deprecation warning](../contributing/coding.md#maintaining-backwards-compatibility)
-- If breaking API changes are introduced: a [major version bump](../contributing/coding.md#maintaining-backwards-compatibility) is performed
+- If breaking API changes are introduced, a PR is merged with a [deprecation warning](../contributing/pr.md#backwards-compatibility)
+- If breaking API changes are introduced: a [major version bump](../contributing/pr.md#backwards-compatibility) is performed
 - Ensure that all CI checks passed before merging a Pull Request
 - [Only applicable for PRs from external contributors] Approve CI executions (when an external contributor opens a PR, someone from the team needs to approve the CI run by clicking on a button)
 - If the CI fails, provide guidance to the contributor. If you suspect the CI is broken due an external factor (e.g., a dependency that its API), send a message on Slack

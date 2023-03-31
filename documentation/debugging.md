@@ -1,4 +1,4 @@
-# Debugging documentation builds
+# Debugging
 
 ## Readthedocs
 
