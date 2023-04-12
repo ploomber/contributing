@@ -1,6 +1,6 @@
-# How the development process looks like
+# Development process
 
-This guide should give you an overview of what the process looks like the different steps etc.
+This guide should give you an overview of what the process looks like, the different steps etc.
 
 The flow in general:
 1. Get an issue assigned.
