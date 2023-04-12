@@ -10,6 +10,8 @@ parts:
       - file: contributing/coding
       - file: contributing/pr
       - file: contributing/troubleshooting
+      - file: contributing/developer-guide
+
 
   - caption: Writing documentation
     chapters:
