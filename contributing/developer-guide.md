@@ -22,8 +22,9 @@ like (I'm going to add a function to class X,
 I'm going to test it, document how to use it etc.). 
 This helps to ensure that everyone is on the same page and that the work meets 
 the project's standards. There are a few mandatory things that has to happen in 
-any of the PRs: **Changelog entry, code, tests (unit, integration, etc.), documentation,
-Telemetry, release post/Demo (except for small doc changes/fixes)**. Once the scope
+any of the PRs: **Changelog entry, code, tests (unit, integration, 
+CICD integration etc.), documentation, Telemetry, release post/Demo
+(except for small doc changes/fixes)**. Once the scope
 is agreed, you can start working on the pull request. Each issue/PR should have 
 a main reviewer, if you didn't see anyone aligned, please ask in the issue and tag us.
 Once the criteria is set, update the pull request text to have this criteria as a check-list
