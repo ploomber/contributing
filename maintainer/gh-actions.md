@@ -39,3 +39,9 @@ git commit --allow-empty -m 'trigger workflows'
 ```{tip}
 See [](ops.md#sync-github-labels) for a tool to add GitHub labels programmatically.
 ```
+
+### How to add `allow-workflow-edits` label
+
+In the PR, check the label area of right side, select `allow-workflow-edits` label
+
+![example](allow-workflow-edits-example.png)
