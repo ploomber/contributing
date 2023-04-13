@@ -18,17 +18,21 @@ Let's dive into each of these sections:
    you can choose one that you're interested in working on.
 
 2. Describe the Acceptance Criteria: 
-   - Before starting to work on the issue, describe the acceptance criteria. 
-     **This stage should be resolve in 24 hours since issue assignment**.
+   - Before starting to work on the issue, describe the acceptance criteria (AC). 
+   - The AC stage should be resolve in **24 hours** from issue assignment.
    - Describing the criteria includes what you're going to work on,
      and what the definition of done looks like (I'm going to add a function to  
      class X, I'm going to test it, document how to use it etc.). 
      This helps to ensure that everyone is on the same page and that the work meets 
      the project's standards. 
    - There are a few mandatory things that has to happen in 
-     any of the PRs: **Changelog entry, code, tests (unit, integration, 
-     CI/CD integration etc.), documentation, Telemetry, release post/Demo
-     (except for small doc changes/fixes)**. 
+     any of the PRs: 
+     - Changelog entry
+     - Code 
+     - Tests (unit, integration, CI/CD integration etc.)
+     - Documentation
+     - Telemetry 
+     - Release post/Demo (except for small doc changes/fixes). 
    - Once the scope is agreed, you can start working on the pull request. 
    - Each issue/PR should have a main reviewer, if you didn't see anyone aligned, 
      please ask in the issue and tag us.
