@@ -25,8 +25,8 @@ you can choose one that you're interested in working on.
   class X, I'm going to test it, document how to use it etc.). 
   This helps to ensure that everyone is on the same page and that the work meets 
   the project's standards. 
-- There are a few mandatory things that has to happen in 
-  any of the PRs:
+- **There are a few mandatory things that has to happen in 
+  any of the PRs:**
   1. Changelog entry 
   2. Code
   3. Tests (unit, integration, CI/CD integration etc.)
