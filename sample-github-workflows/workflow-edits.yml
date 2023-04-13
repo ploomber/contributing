@@ -1,3 +1,4 @@
+# NOTE: MODIFY BRANCH_NAME IN LINE 32!
 # NOTE: we need this as a security measure so PRs from forks cannot submit a PR and
 # modify this file. The only way for this test to pass is to add the
 # 'allow-workflow-edits' label and push again.
