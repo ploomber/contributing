@@ -35,3 +35,7 @@ If `.github/workflows/` has been modified, a mantainer needs to add the `allow-w
 ```sh
 git commit --allow-empty -m 'trigger workflows'
 ```
+
+```{tip}
+See [](ops.md#sync-github-labels) for a tool to add GitHub labels programmatically.
+```

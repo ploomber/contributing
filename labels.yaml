@@ -32,6 +32,13 @@
   delete: false
 
 
+- name: allow-workflow-edits
+  color: "F1E65D"
+  aliases: []
+  description: Allow edits to .github/workflows
+  delete: false
+
+
 # code owners
 
 - name: "Owner: Eduardo"
