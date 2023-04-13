@@ -48,7 +48,7 @@ you can choose one that you're interested in working on.
 - Your pull request will be reviewed by the dedicated maintainer or other team members. 
   They will provide feedback on your work, including any suggested changes or improvements. 
 - Address their feedback and make any necessary changes to your work. 
-  This step shouldn't take more than 2-4 days, and you should 
+- This step shouldn't take more than **2-4 days**, and you should 
 focus on closing existing issues (your active PR) than taking new issues. 
 - Finally, once that's done, your changes will be merged into the main branch and the reviewer
 will delete the branch.
