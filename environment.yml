@@ -6,6 +6,7 @@ channels:
 dependencies:
   - python=3.10
   - pip
+  - pandas
   - pip:
     - jupyter-book
     # 0.13.2 is broken currently

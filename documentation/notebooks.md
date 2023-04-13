@@ -73,3 +73,7 @@ Then, close the file and open it as a notebook as shown in the [Editing an exist
 ```{important}
 Remember to add your notebook to `doc/_toc.yml` to ensure it's included in the documentation.
 ```
+
+```{tip}
+Before writing a tutorial, go over the [checklist.](tutorial-checklist.md)
+```

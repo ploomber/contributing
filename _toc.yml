@@ -19,6 +19,7 @@ parts:
       - file: documentation/notebooks
       - file: documentation/build-doc
       - file: documentation/debugging
+      - file: documentation/tutorial-checklist
 
   - caption: Maintainer
     chapters:
