@@ -27,12 +27,12 @@ Let's dive into each of these sections:
      the project's standards. 
    - There are a few mandatory things that has to happen in 
      any of the PRs: 
-     * Changelog entry
-     * Code 
-     * Tests (unit, integration, CI/CD integration etc.)
-     * Documentation
-     * Telemetry 
-     * Release post/Demo (except for small doc changes/fixes). 
+     1. Changelog entry 
+     2. Code
+     3. Tests (unit, integration, CI/CD integration etc.)
+     4. Documentation
+     5. Telemetry
+     6. Release post/Demo (except for small doc changes/fixes). 
    - Once the scope is agreed, you can start working on the pull request. 
    - Each issue/PR should have a main reviewer, if you didn't see anyone aligned, 
      please ask in the issue and tag us.
