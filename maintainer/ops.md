@@ -51,7 +51,7 @@ pkgmt release VERSION --production
 Only repository administrators can execute this process.
 ```
 
-We've auomated uploading to PyPI in some projects (`pkgmt`, `ploomber-core`).
+We've auomated uploading to PyPI in some projects (`pkgmt`, `ploomber-core`, and `jupysql`).
 
 To make a new release, move to the `master` (or `main`) branch in a local copy of the git repository and execute:
 

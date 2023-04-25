@@ -25,9 +25,27 @@ jobs:
         run: |
           pytest
 
+  # pkgmt check verifies the project version and CHANGELOG.md
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'pkgmt>=0.1.1'
+      - name: Check project
+        run: |
+          pkgmt check
+
   release:
     # TODO: ADD ALL JOBS THAT MUST SUCCEED BEFORE RELEASING!
-    needs: [test]
+    needs: [test, check]
     if: startsWith(github.ref, 'refs/tags') && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
 
@@ -51,21 +69,3 @@ jobs:
         run: |
           echo "tag is $TAG"
           pkgmt release $TAG --production --yes
-
-  # pkgmt check verifies the project version and CHANGELOG.md
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install 'pkgmt>=0.1.1'
-      - name: Check project
-        run: |
-          pkgmt check
