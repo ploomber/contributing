@@ -1,6 +1,6 @@
 # Operations
 
-This document exaplains the processes to keep our shipping process up and running.
+This document explains the processes to keep our shipping process up and running.
 
 ## Versioning
 

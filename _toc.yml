@@ -27,7 +27,6 @@ parts:
       - file: maintainer/ops
       - file: maintainer/conda-forge
       - file: maintainer/gh-actions
-      - file: maintainer/cd
       - file: maintainer/jupyter-book
       - file: maintainer/readthedocs
       - file: maintainer/doc-guide
