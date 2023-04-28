@@ -2,7 +2,15 @@
 # IMPORTANT: update line 30 with all the tasks that must succeed before uploading to PyPI
 # IMPORTANT: store the PyPI token as PYPI_API_TOKEN as a GitHub secret
 name: CI
-on: [push, pull_request]
+
+on:
+  push:
+    # prevent CI duplicated jobs in PRs
+    branches:
+      - master
+      - 'dev/**'
+  pull_request:
+
 
 
 jobs:
