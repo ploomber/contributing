@@ -48,6 +48,8 @@ pkgmt release VERSION --production
 ## Continuous Delivery
 
 ```{important}
+Ensure you're running the latest `pkgmt` version before proceeding: `pip install pkgmt -U`
+
 Only repository administrators can execute this process.
 ```
 
