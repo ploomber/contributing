@@ -53,7 +53,7 @@ Ensure you're running the latest `pkgmt` version before proceeding: `pip install
 Only repository administrators can execute this process.
 ```
 
-We've auomated uploading to PyPI in some projects (`pkgmt`, `ploomber-core`, and `jupysql`).
+We've auomated uploading to PyPI in some projects (`pkgmt`, `ploomber-core`, `jupysql`, and `ploomber-engine`).
 
 To make a new release, move to the `master` (or `main`) branch in a local copy of the git repository and execute:
 
