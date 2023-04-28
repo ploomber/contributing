@@ -1,13 +1,14 @@
 # Sample workflow thata runs tests and uploads to PyPI
-# IMPORTANT: update line 30 with all the tasks that must succeed before uploading to PyPI
+# IMPORTANT: update line 57 with all the tasks that must succeed before uploading to PyPI
 # IMPORTANT: store the PyPI token as PYPI_API_TOKEN as a GitHub secret
+# IMPORTANT: update line 11 with the name of your main branch
 name: CI
 
 on:
   push:
     # prevent CI duplicated jobs in PRs
     branches:
-      - master
+      - main # TODO: or master!
       - 'dev/**'
   pull_request:
 
