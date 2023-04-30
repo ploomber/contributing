@@ -20,3 +20,13 @@ grayskull pypi --strict-conda-forge {package-name}
 
 - Edit the `meta.yaml`, ensure you're listed as maintainer
 - Note: there is no need to add the `LICENSE` file at `staged-recipes/recipes/LICENSE` (as their docs suggest) if the LICENSE is already in the `.tar.gz` file.
+
+
+## Adding version updates
+
+By default, PRs opeened by the bot won't detect version updates. To enable them, add this to the `conda-forge.yml`
+
+```yaml
+bot:
+  inspection: update-grayskull
+```
