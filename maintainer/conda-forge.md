@@ -1,6 +1,13 @@
 # `conda-forge`
 
-Some of our packages are available on conda-forge. To upload a new package, follow the instructions [(longer version here)](https://conda-forge.org/docs/maintainer/adding_pkgs.html#generating-the-recipe):
+Some of our packages are available on conda-forge:
+
+- [ploomber](https://github.com/conda-forge/ploomber-feedstock)
+- [ploomber-engine](https://github.com/conda-forge/ploomber-engine-feedstock)
+- [ploomber-core](https://github.com/conda-forge/ploomber-core-feedstock)
+- [jupysql](https://github.com/conda-forge/jupysql-feedstock)
+
+To upload a new package, follow the instructions [(longer version here)](https://conda-forge.org/docs/maintainer/adding_pkgs.html#generating-the-recipe):
 
 - Fork the [staged-recipes](https://github.com/conda-forge/staged-recipes) repository.
 - Clone your fork
