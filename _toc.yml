@@ -11,6 +11,7 @@ parts:
       - file: contributing/pr
       - file: contributing/troubleshooting
       - file: contributing/developer-guide
+      - file: contributing/review
 
 
   - caption: Writing documentation
