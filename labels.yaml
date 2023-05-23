@@ -1,5 +1,7 @@
 # configuration file used to sync labels (see ops.md for more info)
 
+# issue classifiers
+
 - name: bug
   color: "d73a4a"
   aliases: []
@@ -18,6 +20,23 @@
   description: Good for newcomers
   delete: false
 
+- name: API change
+  color: "FBCA04"
+  aliases: []
+  description: Breaks existing API
+  delete: false
+
+# permissions
+
+- name: allow-workflow-edits
+  color: "F1E65D"
+  aliases: []
+  description: Allow edits to .github/workflows
+  delete: false
+
+
+# priority
+
 - name: high priority
   color: "0E8A16"
   aliases: []
@@ -25,17 +44,21 @@
   delete: false
 
 
-- name: API change
-  color: "FBCA04"
+# complexity
+
+
+- name: high complexity
+  color: "F15D5D"
   aliases: []
-  description: Breaks existing API
+  description: High complexity
   delete: false
 
 
-- name: allow-workflow-edits
-  color: "F1E65D"
+
+- name: med complexity
+  color: "F1EB5D"
   aliases: []
-  description: Allow edits to .github/workflows
+  description: Medium compplexity
   delete: false
 
 
