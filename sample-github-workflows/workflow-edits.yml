@@ -5,7 +5,9 @@
 name: workflow-edited
 
 
-# note that this triggers on 'pull_request_target' instead of 'pull_request'.
+# note that this triggers on 'pull_request_target' instead of 'pull_request' because
+# 'pull_request_target' will execute the workflow spec from the PRs base branch (i.e., main/master),
+# hence, contributors will be unable to modify this spec
 # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
 # https://docs.boostsecurity.io/rules/cicd-gha-risky-pull-request-target-usage.html
 on: [pull_request_target]
