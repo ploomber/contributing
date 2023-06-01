@@ -1,5 +1,9 @@
 Summary of changes from all Ploomber products. Used internally to create social media content. The entries are usually a subset of what we publish in each `CHANGELOG.md`.
 
+## JupySQL - 0.7.8 (2023-06-01)
+
+* [Feature] Add `%sqlplot bar` and `%sqlplot pie` (#508) ([Example](https://jupysql.ploomber.io/en/latest/api/magic-plot.html#sqlplot-bar))
+
 ## JupySQL - 0.7.7 (2023-05-31)
 
 * [Feature] `%sql --connections` now displays an HTML table in Jupyter and a text-based table in the terminal ([Example](https://jupysql.ploomber.io/en/latest/api/magic-sql.html#list-connections))
