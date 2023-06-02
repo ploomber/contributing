@@ -1,5 +1,10 @@
 Summary of changes from all Ploomber products. Used internally to create social media content. The entries are usually a subset of what we publish in each `CHANGELOG.md`.
 
+## Ploomber - 0.22.4 (2023-06-01)
+
+* [Feature] Add `executor` option to NotebookRunner to choose ploomber-engine or papermill. ploomber-engine provides enhanced capabilities for debugging, testing and monitoring notebook execution ([Documentation](https://docs.ploomber.io/en/latest/cookbook/nb_executors.html))
+* [Fix] Fix error in `ScriptRunner` that didn't allow to import modules in script's directory ([#1072](https://github.com/ploomber/ploomber/issues/1072)) 
+
 ## JupySQL - 0.7.8 (2023-06-01)
 
 * [Feature] Add `%sqlplot bar` and `%sqlplot pie` (#508) ([Example](https://jupysql.ploomber.io/en/latest/api/magic-plot.html#sqlplot-bar))
