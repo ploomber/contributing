@@ -35,7 +35,7 @@ commit as much as you want
 
 it won't destroy anything
 
-once you're ready to shwo your work, open a PR
+once you're ready to show your work, open a PR
 
 ```{tip}
 We encourage you to start working on your contribution and open a draft Pull Request to request early feedback, this will helps us ensure we're on the same page.
