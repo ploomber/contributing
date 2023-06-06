@@ -30,9 +30,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install pytest
+          python -m pip install pytest pkgmt
+
+    # Check whether doc has been modified or not w.r.t. origin/main
+    # If anything other than doc has been modified, the test job will fail
+    # Not working on Windows
+    - name: Check doc
+      id: check_doc
+      run: |
+        python -m pkgmt.fail_if_modified -b origin/main -e doc
+      continue-on-error: true
 
       - name: Test
+        # Only run the test if anything else than doc has been modified
+        if: steps.check_doc.outcome == 'failure'
         run: |
           pytest
 
