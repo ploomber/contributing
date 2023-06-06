@@ -21,7 +21,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          # Fetch depth is important for git diff, which is used by check_doc
+          fetch-depth:0
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
