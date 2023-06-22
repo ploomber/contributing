@@ -51,7 +51,18 @@ However, this setting makes the doc building process too strict.
 
 ## Debugging failed notebooks
 
-Readthedocs includes ANSI color codes in the notebook's traceback, which are unreadable in the readthedocs build. To fix it, you can use a script, which will print the logs in your terminal (which can render ANSI color codes):
+Readthedocs includes ANSI color codes in the notebook's traceback, which are unreadable in the readthedocs build. Example:
+
+```
+Cell [0;32mIn[4], line 3[0m
+[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn_evaluation[39;00m [38;5;28;01mimport[39;00m plot
+[0;32m----> 3[0m cm [38;5;241m=[39m [43mplot[49m[38;5;241;43m.[39;49m[43mInteractiveConfusionMatrix[49m[38;5;241;43m.[39;49m[43mfrom_raw_data[49m[43m([49m
+[1;32m      4[0m [43m    [49m[43my_test[49m[38;5;241;43m.[39;49m[43mtolist[49m[43m([49m[43m)[49m[43m,[49m
+[1;32m      5[0m [43m
+```
+
+
+To fix it, use the following script, which will print the logs in your terminal (which can render ANSI color codes):
 
 ```python
 pip install pyppeteer
