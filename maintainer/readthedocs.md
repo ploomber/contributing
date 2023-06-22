@@ -48,3 +48,20 @@ However, this setting makes the doc building process too strict.
 ## Build docs on PRs
 
 [See here.](https://github.com/readthedocs/actions/tree/main/preview)
+
+## Debugging failed notebooks
+
+Readthedocs includes ANSI color codes in the notebook's traceback, which are unreadable in the readthedocs build. To fix it, you can use a script, which will print the logs in your terminal (which can render ANSI color codes):
+
+```python
+pip install pyppeteer
+
+# get the script
+curl -O https://raw.githubusercontent.com/ploomber/contributing/main/scripts/rtdlogs.py
+
+# run it
+python rtdlogs.py https://readthedocs.org/projects/PROJECT/builds/BUILD
+```
+
+
+More info: https://github.com/ploomber/contributing/issues/77
