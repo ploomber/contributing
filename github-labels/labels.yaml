@@ -34,13 +34,18 @@
   description: Allow edits to .github/workflows
   delete: false
 
-
-# priority
-
-- name: high priority
-  color: "0E8A16"
+- name: no-changelog
+  color: "5DD4F1"
   aliases: []
-  description: High priority
+  description: This PR doesn't require a changelog entry
+  delete: false
+
+# to work on next
+
+- name: stash
+  color: "0E8A16"
+  aliases: ["high priority"]
+  description: Label used to categorize issues that will be worked on next
   delete: false
 
 

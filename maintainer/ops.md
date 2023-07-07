@@ -123,19 +123,23 @@ To sync labels across repositories, we use [this tool](https://github.com/Financ
 conda create --name label-sync nodejs
 conda activate label-sync
 npm install -g github-label-sync
+pip install "click<9"
 
+cd github-labels/
 
 # pass the github token
 export GH_TOKEN=XXX
 
-# pass the repository
-export REPO=ploomber/ploomber-engine
 
-# sync labels: pass --dry-run to do a test, remove the flag once you're sure
-github-label-sync --access-token $GH_TOKEN \
-    $REPO  --labels labels.yaml --dry-run
+# dry-run with dummy repo
+python github-labels.py --dry-run
+
+# apply changes to dummy repo
+python github-labels.py
+
+# apply to all repos
+python github-labels.py --all-repos
 ```
-
 
 ## Repository quality checklist
 
