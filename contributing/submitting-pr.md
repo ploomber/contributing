@@ -118,6 +118,10 @@ However, some projects require specific arguments, to know what's the right argu
 pytest --durations-min=5 --ignore=src/tests/integration
 ```
 
+## User-centric testing
+
+TODO
+
 ## Documenting changes and new features
 
 The documentation must be updated when you make changes to the API (add arguments, add a new class, etc.) (we use the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format).
@@ -182,7 +186,11 @@ To measure usage, we add telemetry to our packages. See the [user guide.](https:
 If the feature you're implementing requires extra packages, we might consider adding them as optional dependencies. [Check out the guide.](https://ploomber-core.readthedocs.io/en/latest/dependencies.html)
 
 
-## Opening a Pull Request
+## Opening a Draft Pull Request
+
+```{important}
+Assuming your PR passes all tests, **you should get a review within 24 hours.** If you don't, you can tag/notify the reviewer (they might've missed the notification).
+```
 
 To open a Pull Request, open the *original repository* on GitHub, then click on:
 
@@ -202,7 +210,49 @@ Then ensure the menu displays the original repository (`ploomber/PROJECT_NAME`) 
 base repository: ploomber/PROJECT_NAME base: main (or master) ⬅️ head repository: YOURUSERNAME/PROJECT_NAME compare: YOURBRANCH
 ```
 
-Then click on open Pull Request.
+Then click on open **Draft Pull Request.** Opening a PR will trigger building
+documentation and running the tests. Wait for a few minutes (most of our tests run in
+<15 minutes). If the checks failed:
+
+![](../assets/checks-failed.png)
+
+Check the logs and fix them (see the [troubleshooting](troubleshooting.md) guide
+for tips). If you're unable to fix the issues after spending some time on them. You
+can message us on Slack so we can help you.
+
+Once the tests pass:
+
+![](../assets/checks-passed.png)
+
+
+Ensure there are no [merge conflicts](#fixing-merge-conflicts).
+
+If all the test pass and there are no merge conflicts,  you can [request a review](#requesting-a-review).
+
+```{important}
+If your PR isn't ready yet, open it as a draft. Keep it as a draft until it's ready for review.
+```
+
+## Requesting a review
+
+Once your PR is ready, you must request a review. In some of our repositories, the
+review is requested automatically once you click on "Ready for review":
+
+![](../assets/ready-for-review.png)
+
+But if the reviewers list looks empty, you can request a review by clicking on the
+gear icon ⚙️ in the reviewers section (in the right bar):
+
+![](../assets/reviewers.png)
+
+And then add `@edublancas` and `@idomic` as reviewers.
+
+![](../assets/request-review.png)
+
+```{note}
+If the gear ⚙️ button isn't visible, tag `@edublancas` in a comment so he can fix
+GitHub permissions.
+```
 
 ## Fixing merge conflicts
 

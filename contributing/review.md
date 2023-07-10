@@ -1,4 +1,5 @@
 # Reviewing PRs
+
 ## The first review should be throughout
 
 The first review should be the most detailed one, so upcoming reviews
@@ -19,7 +20,7 @@ ask the contributor to tackle it.
 
 Strike a good balance between a short yet understandable message and detailed feedback.
 Written communication is hard, so minimize the number of words while maximizing the
-amount of information shared. 
+amount of information shared.
 
 Avoid using *it* in your comments, as it leads to ambiguity. Example:
 
@@ -32,3 +33,7 @@ Avoid using *it* in your comments, as it leads to ambiguity. Example:
 The reviewer is responsible for clicking on `Resolve conversation`. Contributors should address observations but it's up to the reviewer to mark them as resolved (as they're the ones that verify that their observations were effectively addressed).
 
 ![](../assets/resolve-conversation.png)
+
+## It's ok to dismiss incomplete PRs
+
+If you receive a request for review but the PR is incomplete (e.g., the CI isn't passing) or there are obvious misses in the acceptance criteria, you can skip your review and check again the next day. It's the contributors responsibility to ensure their PRs are ready to review.
