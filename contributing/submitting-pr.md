@@ -90,6 +90,47 @@ Keep in mind this guidelines when writing changelog messages:
 
 ## Testing
 
+Testing our codes ensures that it's working as expected, so writing tests is an essential part of the contribution process. If you're contributing with a new feature, you'll have to write new tests from scratch. On the other hand, if you're fixing a bug, you might have to modify existing tests and add new tests to ensure that the bug has been fixed.
+
+Ensuring that your new feature works is just as important as ensuring that we're helping the user when things don't work as expected. For example, say you're working on a function named `add` that adds two numbers:
+
+```python
+def add(x, y):
+    return x + y
+```
+
+A test might look like this:
+
+```python
+def test_add():
+    assert add(21, 21) == 42
+```
+
+However, you should also take into account scenarios where the function doesn't work,
+for example, if the user calls the function with a string: `add("21", 21)`, they'll
+see the following error:
+
+```
+TypeError: can only concatenate str (not "int") to str
+```
+
+The error is difficult to understand, so you should ensure that you're covering likely
+scenarios (they don't have to be exhaustive but try to think what the user might do).
+After encountering such edge case, you can add a new test:
+
+
+```python
+def test_error_if_wrong_type():
+    with pytest.raises(TypeError) as excinfo:
+        add(21, 21)
+
+    message = "function add only supports numbers, you passed a str object in the first argument ('21')"
+    assert str(excinfo).value == message
+```
+
+Of course, the test won't pass since you haven't implemetned such validation, but you can now go, implement it and verify that the test passes.
+
+
 * We use [pytest](https://docs.pytest.org/en/7.2.x/) for testing. A basic understanding of `pytest` is highly recommended to get started, especially [fixtures](https://docs.pytest.org/en/7.2.x/fixture.html), [parametrization](https://docs.pytest.org/en/7.2.x/parametrize.html), and [debugging](https://docs.pytest.org/en/7.2.x/how-to/failures.html)
 * In most cases, for a given in `src/ploomber/MODULE_NAME`, there is a testing module in `tests/MODULE_NAME`, if you're working on a particular module, you can execute the corresponding testing module for faster development but when submitting a pull request, all tests will run
 * If you're checking error messages and they include absolute paths to files, you may encounter some issues when running the Windows CI since the Github Actions VM has some symlinks. If the test calls `Pathlib.resolve()` ([resolves symlinks](https://docs.python.org/3/library/pathlib.html#id5)), call it in the test as well, if it doesn't, use `os.path.abspath()` (does not resolve symlinks).
@@ -117,10 +158,6 @@ However, some projects require specific arguments, to know what's the right argu
 ```sh
 pytest --durations-min=5 --ignore=src/tests/integration
 ```
-
-## User-centric testing
-
-TODO
 
 ## Documenting changes and new features
 
