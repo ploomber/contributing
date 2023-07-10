@@ -1,5 +1,4 @@
-# Troubleshooting
-
+# Troubleshooting a PR
 
 If your PR is failing, use this troubleshooting guide.
 

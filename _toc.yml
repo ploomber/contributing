@@ -7,10 +7,10 @@ parts:
   - caption: Contributing
     chapters:
       - file: contributing/setup
+      - file: contributing/process-outline
       - file: contributing/coding
       - file: contributing/pr
       - file: contributing/troubleshooting
-      - file: contributing/developer-guide
       - file: contributing/review
 
 
