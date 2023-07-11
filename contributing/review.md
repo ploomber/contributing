@@ -1,6 +1,6 @@
 # Reviewing PRs
 
-## The first review should be throughout
+## The first review should be thorough
 
 The first review should be the most detailed one, so upcoming reviews
 become smaller and take less time. The only exception is when there's something
@@ -22,17 +22,19 @@ Strike a good balance between a short yet understandable message and detailed fe
 Written communication is hard, so minimize the number of words while maximizing the
 amount of information shared.
 
-Avoid using *it* in your comments, as it leads to ambiguity. Example:
+Avoid using *it* or *this* in your comments, as it leads to ambiguity. Example:
 
 **Bad:** I noticed that it doesn't work if you pass `verbose=True`
 
 **Good**: I noticed that the function `perform_operation` doesn't work if you pass `verbose=True`
 
-## You're responsible for resolving conversation
+## You're responsible for resolving conversations
 
 The reviewer is responsible for clicking on `Resolve conversation`. Contributors should address observations but it's up to the reviewer to mark them as resolved (as they're the ones that verify that their observations were effectively addressed).
 
 ![](../assets/resolve-conversation.png)
+
+Once you've addressed all the comments, request another review.
 
 ## It's ok to dismiss incomplete PRs
 

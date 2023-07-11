@@ -12,7 +12,7 @@ Let's dive into each of these sections.
 
 ## 1. Getting issue assigned
 
-The project's maintainers may assign you an issue, or  you can choose one that you're
+The project's maintainers may assign you an issue, or you can choose one that you're
 interested in working on.
 
 ## 2. Describe the Acceptance Criteria
@@ -43,9 +43,8 @@ interested in working on.
 For more information, see [](submitting-pr.md).
 ```
 
-- Once you've completed the work, submit a draft pull request to the repository. 
-- The pull request will include the changes you've made and any relevant 
-  information or comments you want to share with your reviewer.
+- If you want to receive early feedback, you can opem a Draft Pull Request
+- Once you've completed the work, clicck on "Ready to Review" and request a review
 
 ## 4. Review Process
 

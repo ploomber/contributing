@@ -128,7 +128,7 @@ def test_error_if_wrong_type():
     assert str(excinfo).value == message
 ```
 
-Of course, the test won't pass since you haven't implemetned such validation, but you can now go, implement it and verify that the test passes.
+Of course, the test won't pass since you haven't implemented such validation, but you can now go, implement it and verify that the test passes.
 
 
 * We use [pytest](https://docs.pytest.org/en/7.2.x/) for testing. A basic understanding of `pytest` is highly recommended to get started, especially [fixtures](https://docs.pytest.org/en/7.2.x/fixture.html), [parametrization](https://docs.pytest.org/en/7.2.x/parametrize.html), and [debugging](https://docs.pytest.org/en/7.2.x/how-to/failures.html)
@@ -247,15 +247,24 @@ Then ensure the menu displays the original repository (`ploomber/PROJECT_NAME`) 
 base repository: ploomber/PROJECT_NAME base: main (or master) ⬅️ head repository: YOURUSERNAME/PROJECT_NAME compare: YOURBRANCH
 ```
 
-Then click on open **Draft Pull Request.** Opening a PR will trigger building
-documentation and running the tests. Wait for a few minutes (most of our tests run in
+Then click on open **Draft Pull Request.**
+
+
+```{tip}
+If you open a **Ready to review PR** by mistake, you can convert it into a draft by
+clicking on "convert to draft" in the right side bar:
+
+![](../assets/convert-to-draft.png)
+```
+
+Opening a PR will trigger building documentation and running the tests. Wait for a few minutes (most of our tests run in
 <15 minutes). If the checks failed:
 
 ![](../assets/checks-failed.png)
 
 Check the logs and fix them (see the [troubleshooting](troubleshooting.md) guide
-for tips). If you're unable to fix the issues after spending some time on them. You
-can message us on Slack so we can help you.
+for tips). If you're unable to fix the issues after spending some time on them, you
+can message us on Slack.
 
 Once the tests pass:
 
@@ -264,7 +273,7 @@ Once the tests pass:
 
 Ensure there are no [merge conflicts](#fixing-merge-conflicts).
 
-If all the test pass and there are no merge conflicts,  you can [request a review](#requesting-a-review).
+If all the test pass and there are no merge conflicts, you can [request a review](#requesting-a-review).
 
 ```{important}
 If your PR isn't ready yet, open it as a draft. Keep it as a draft until it's ready for review.
