@@ -1,7 +1,51 @@
 # Reviewing PRs
 
-## Guidelines
+## The first review should be thorough
 
-1. The first review should be throughout, so upcoming reviews become smaller
-2. Avoid adding new requirements to existing PRs, the code should be evaluated based on the acceptance criteria
-3. Share concise but direct feedback: strike a good balance between a short yet understandable message
+The first review should be the most detailed one, so upcoming reviews
+become smaller and take less time. The only exception is when there's something
+obviously broken (e.g., you ran some tests and the feature doesn't work as described in
+the acceptance criteria). In such case, you can comment what the problem is and tell
+the contributor to re-request your review once the problem is addressed.
+
+## Avoid adding new requirements to existing PRs
+
+The code should be evaluated based on the acceptance criteria and new items should
+not be added. However, if you test the PR and encounter that the implementation isn't
+complete, it's fine to bring it up. The most common scenario is when the new feature
+doesn't handle error correctly (e.g., unclear error messages), in such cases, you can
+ask the contributor to tackle it.
+
+## Share concise but direct feedback
+
+Strike a good balance between a short yet understandable message and detailed feedback.
+Written communication is hard, so minimize the number of words while maximizing the
+amount of information shared.
+
+Avoid using *it* or *this* in your comments, as it leads to ambiguity. Example:
+
+**Bad:** I noticed that it doesn't work if you pass `verbose=True`
+
+**Good**: I noticed that the function `perform_operation` doesn't work if you pass `verbose=True`
+
+## You're responsible for resolving conversations
+
+The reviewer is responsible for clicking on `Resolve conversation`. Contributors should address observations but it's up to the reviewer to mark them as resolved (as they're the ones that verify that their observations were effectively addressed).
+
+![](../assets/resolve-conversation.png)
+
+Once you've addressed all the comments, request another review.
+
+```{note}
+If you don't see the "Resolve conversation" button, tag `@edublancas` so he can fix GitHub permissions.
+```
+
+## It's ok to dismiss incomplete PRs
+
+If you receive a request for review but the PR is incomplete (e.g., the CI isn't passing) or there are obvious misses in the acceptance criteria, you can skip your review and check again the next day. It's the contributors responsibility to ensure their PRs are ready to review.
+
+## User-centric testing
+
+When reviewing new features, we encourage you to follow a user-centric approach and test the feature yourself (as opposed to just looking at the code and tests). Testing the new feature can help you uncover edge cases that the author didn't consider.
+
+For more information, see [](../maintainer/maintainer.md#quality-assurance).

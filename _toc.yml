@@ -8,9 +8,10 @@ parts:
     chapters:
       - file: contributing/setup
       - file: contributing/coding
-      - file: contributing/pr
+      - file: contributing/process-outline
+      - file: contributing/submitting-pr
       - file: contributing/troubleshooting
-      - file: contributing/developer-guide
+      - file: contributing/responding-pr-review
       - file: contributing/review
 
 

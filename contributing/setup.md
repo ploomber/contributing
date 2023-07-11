@@ -165,6 +165,48 @@ conda activate ENV_NAME
 You have to repeat this process for every project you contribute to. For example, if you start contributing to [JupySQL](https://github.com/ploomber/jupysql), and then you are contributing to [ploomber-engine](https://github.com/ploomber/ploomber-engine), you'll have to setup again.
 ```
 
+## Verify your installation
+
+If you follow these instructions for setting up, the package will install in editable
+mode. Meaning any changes to the source code will be visible when you start a session.
+
+To verify this you can run the following in your terminal:
+
+```sh
+python -c "import PACKAGE_NAME; print(PACKAGE_NAME)"
+```
+
+Change `PACKAGE_NAME` for the package you're contributing to. Usually the name of
+the repository is the name of the package, but there are exceptions, to ensure you
+got the right name, navigate to the repository and open the `src/` directory, the
+folders there are the package names. For example, in [JupySQL](https://github.com/ploomber/jupysql/tree/master/src), we have `sql/`, and
+`tests/`, so I can verify that JupySQL is installed in editable mode by running:
+
+```sh
+python -c "import sql; print(sql)"
+```
+
+If the package is in editable mode, you'll see something like this:
+
+```
+<module 'sql' from '/path/to/cloned/repository/src/sql/__init__.py'>
+```
+
+If not, you'll see something like this:
+
+```
+<module 'sql' from '/path/to/envs/tmp/lib/python3.X/site-packages/sql/__init__.py'>
+```
+
+If the package isn't correctly installed, you'll see:
+
+```
+ModuleNotFoundError: No module named 'sql'
+```
+
+If you encounter problems, message us on Slack.
+
+## Next
 
 Now, let's check your [fork and IDE settings.](coding)
 
