@@ -43,8 +43,8 @@ interested in working on.
 For more information, see [](submitting-pr.md).
 ```
 
-- If you want to receive early feedback, you can opem a Draft Pull Request
-- Once you've completed the work, clicck on "Ready to Review" and request a review
+- If you want to receive early feedback, you can open a Draft Pull Request
+- Once you've completed the work, click on "Ready to Review" and request a review
 
 ## 4. Review Process
 

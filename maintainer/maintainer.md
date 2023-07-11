@@ -46,6 +46,8 @@ Owners also have the following responsibilities:
 
 ## Quality assurance
 
+### Testing with Binder
+
 The easiest way to test code contributions is via Binder (a hosted JupyterLab). When
 reviewing a pull request, click on the [documentation link](../maintainer/doc-guide.md#previewing-docs).
 
@@ -88,6 +90,19 @@ When testing the code: put yourself in the user's shoes (who has never executed 
 > some extra examples needed). In the former case, we should not merge the PR, but in
 > the latter case we should merge it and you can open a new issue to discuss further
 > improvements.
+
+### Testing locally
+
+Alternatively, you can use the [GitHub CLI](https://cli.github.com/) to checkout PRs locally:
+
+```sh
+cd path/to/project
+gh checkout pr NUMBER
+```
+
+```{note}
+Ensure that the package you're testing is installed in editable mode!
+```
 
 ## Continuous integration
 

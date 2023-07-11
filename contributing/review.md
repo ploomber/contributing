@@ -36,6 +36,16 @@ The reviewer is responsible for clicking on `Resolve conversation`. Contributors
 
 Once you've addressed all the comments, request another review.
 
+```{note}
+If you don't see the "Resolve conversation" button, tag `@edublancas` so he can fix GitHub permissions.
+```
+
 ## It's ok to dismiss incomplete PRs
 
 If you receive a request for review but the PR is incomplete (e.g., the CI isn't passing) or there are obvious misses in the acceptance criteria, you can skip your review and check again the next day. It's the contributors responsibility to ensure their PRs are ready to review.
+
+## User-centric testing
+
+When reviewing new features, we encourage you to follow a user-centric approach and test the feature yourself (as opposed to just looking at the code and tests). Testing the new feature can help you uncover edge cases that the author didn't consider.
+
+For more information, see [](../maintainer/maintainer.md#quality-assurance).
