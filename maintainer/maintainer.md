@@ -101,7 +101,8 @@ gh checkout pr NUMBER
 ```
 
 ```{note}
-Ensure that the package you're testing is installed in editable mode!
+Ensure that the package you're testing is installed in editable mode.
+See [](../contributing/setup.md#verify-your-installation) for more information.
 ```
 
 ## Continuous integration

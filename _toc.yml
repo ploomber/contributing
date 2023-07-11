@@ -7,8 +7,8 @@ parts:
   - caption: Contributing
     chapters:
       - file: contributing/setup
-      - file: contributing/process-outline
       - file: contributing/coding
+      - file: contributing/process-outline
       - file: contributing/submitting-pr
       - file: contributing/troubleshooting
       - file: contributing/responding-pr-review
