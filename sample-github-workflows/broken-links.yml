@@ -7,6 +7,11 @@ on:
 jobs:
   broken-links:
     runs-on: ubuntu-latest
+    # in some cases, PRs might add links that don't yet exist. the most common example
+    # is when an error message includes a link to the docs; if the doesn't exist in the
+    # production docs yet, then it won't exist. we allow bypassing this with the
+    # allow-broken-links label
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'allow-broken-links') }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
