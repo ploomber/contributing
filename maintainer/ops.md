@@ -128,7 +128,7 @@ pip install "click<9"
 cd github-labels/
 
 # pass the github token
-export GH_TOKEN=XXX
+export GITHUB_TOKEN=XXX
 
 
 # dry-run with dummy repo

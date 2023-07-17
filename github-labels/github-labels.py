@@ -8,6 +8,7 @@ REPOS = [
     "ploomber/jupysql",
     "ploomber/ploomber",
     "ploomber/ploomber-engine",
+    "ploomber/soopervisor",
     "ploomber/sklearn-evaluation",
     "ploomber/cloud-backend",
     "ploomber/cloud-frontend",
@@ -38,7 +39,8 @@ def _sync(repo, access_token, dry_run):
 @click.command()
 @click.option("--dry-run", is_flag=True, help="Perform a dry run")
 @click.option("--all-repos", is_flag=True, help="Apply changes to all repositories")
-def cli(dry_run, all_repos):
+@click.argument("repo", required=False, default="ploomber/dummy")
+def cli(repo, dry_run, all_repos):
     if not dry_run and all_repos:
         input_ = click.prompt(
             "Are you sure you want to apply changes to all repos? "
@@ -60,7 +62,7 @@ def cli(dry_run, all_repos):
         raise click.ClickException("GITHUB_TOKEN environment variable not set.")
 
     if not all_repos:
-        _sync("ploomber/dummy", ACCESS_TOKEN, dry_run)
+        _sync(repo, ACCESS_TOKEN, dry_run)
     else:
         for repo in REPOS:
             _sync(repo, ACCESS_TOKEN, dry_run)
