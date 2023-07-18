@@ -1,5 +1,10 @@
 Summary of changes from all Ploomber products. Used internally to create social media content. The entries are usually a subset of what we publish in each `CHANGELOG.md`.
 
+## JupySQL 0.8.0 (2023-07-18)
+
+* [Feature] Better performance when using DuckDB native connection and converting to `pandas.DataFrame` or `polars.DataFrame` (when using a native DuckDB connection, JupySQL now uses DuckDB's [native methods](https://duckdb.org/docs/api/python/overview.html#result-conversion) for converting to `pandas` and `polars`, this allows for maximum performance)
+* [Fix] Lazy loading results ([#470](https://github.com/ploomber/jupysql/issues/470)) (when you run a query, only a few rows are fetched from the database to show a data preview. It's only when you request all results that JupySQL will fetch them from the database)
+
 
 ## JupySQL - 0.7.9 (2023-06-19)
 
