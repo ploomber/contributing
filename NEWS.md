@@ -1,5 +1,14 @@
 Summary of changes from all Ploomber products. Used internally to create social media content. The entries are usually a subset of what we publish in each `CHANGELOG.md`.
 
+## JupySQL 0.9.0 (2023-08-01)
+
+*Full [changelog](https://github.com/ploomber/jupysql/blob/master/CHANGELOG.md)*
+
+* [Feature] Allow loading configuration value from a `pyproject.toml` file upon magic initialization ([#689](https://github.com/ploomber/jupysql/issues/689)) ([Docs](https://jupysql.ploomber.io/en/latest/api/configuration.html#loading-configuration-from-a-pyproject-toml-file))
+* [Feature] allows parametrizing queries with `:variable` with `%config SqlMagic.named_parameters = True` ([Docs](https://jupysql.ploomber.io/en/latest/user-guide/template.html#id1))
+* [Feature] Using native methods to convert to data frames from DuckDB when using native connections and SQLAlchemy to maximize performance ([Docs](https://jupysql.ploomber.io/en/latest/integrations/duckdb.html))
+* [Fix] Fixed a bug when computng histogram bins ([#751](https://github.com/ploomber/jupysql/issues/751)) ([Docs](https://jupysql.ploomber.io/en/latest/user-guide/ggplot.html))
+
 ## JupySQL 0.8.0 (2023-07-18)
 
 * [Feature] Better performance when using DuckDB native connection and converting to `pandas.DataFrame` or `polars.DataFrame` (when using a native DuckDB connection, JupySQL now uses DuckDB's [native methods](https://duckdb.org/docs/api/python/overview.html#result-conversion) for converting to `pandas` and `polars`, this allows for maximum performance)
