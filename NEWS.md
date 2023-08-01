@@ -2,7 +2,7 @@ Summary of changes from all Ploomber products. Used internally to create social 
 
 ## JupySQL 0.9.0 (2023-08-01)
 
-*Full [changelog](https://github.com/ploomber/jupysql/blob/master/CHANGELOG.md)*
+*Full [changelog here.](https://github.com/ploomber/jupysql/blob/master/CHANGELOG.md#090-2023-08-01)*
 
 * [Feature] Allow loading configuration value from a `pyproject.toml` file upon magic initialization ([#689](https://github.com/ploomber/jupysql/issues/689)) ([Docs](https://jupysql.ploomber.io/en/latest/api/configuration.html#loading-configuration-from-a-pyproject-toml-file))
 * [Feature] allows parametrizing queries with `:variable` with `%config SqlMagic.named_parameters = True` ([Docs](https://jupysql.ploomber.io/en/latest/user-guide/template.html#id1))
