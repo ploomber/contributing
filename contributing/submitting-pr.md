@@ -159,6 +159,26 @@ However, some projects require specific arguments, to know what's the right argu
 pytest --durations-min=5 --ignore=src/tests/integration
 ```
 
+## Testing guidelines
+
+Here are some guidelines to write clean unit tests:
+
+- Write descriptive test names
+    - Good: `test_add_when_x_argument_is_negative`
+    - Bad: `test_add_negative`
+
+- Avoid control structures when asserting results
+
+```python
+# good
+assert "x" == content
+assert "y" == content
+
+# bad
+for c in ["x", "y"]:
+    assert c in content
+```
+
 ## Documenting changes and new features
 
 The documentation must be updated when you make changes to the API (add arguments, add a new class, etc.) (we use the [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html) format).
@@ -273,7 +293,14 @@ Once the tests pass:
 
 Ensure there are no [merge conflicts](#fixing-merge-conflicts).
 
-If all the test pass and there are no merge conflicts, you can [request a review](#requesting-a-review).
+Finally, run a quick check to review your changes by clicking on `Files changed`:
+
+![](../assets/files-changed.png)
+
+Ensure that there are no debugging `print` statements, commented code,
+missing docstrings or anything that is out of place.
+
+If all the test pass and there are no merge conflicts, and you did a quick check, you can [request a review](#requesting-a-review).
 
 ```{important}
 If your PR isn't ready yet, open it as a draft. Keep it as a draft until it's ready for review.
@@ -355,3 +382,14 @@ During the merge operation, you might have to solve merge conflicts. If you need
 Rebase is recommended for advanced users. [Click here to learn more.](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
 
 During the rebase operation, you might have to solve merge conflicts. If you need help, message us on [Slack.](https://ploomber.io/community)
+
+### Checking changes
+
+Once you finished solving merge conflicts, do a quick check by looking at `Files changed`:
+
+![](../assets/files-changed.png)
+
+Things to look for:
+
+- Are there changes I didn't do but that appear in the `Files changed`? If so, it means that something went wrong when merging conflicts
+- Am I missing any changes? If so, you might've deleted some changes while solving merge conflicts
