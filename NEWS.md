@@ -1,5 +1,15 @@
 Summary of changes from all Ploomber products. Used internally to create social media content. The entries are usually a subset of what we publish in each `CHANGELOG.md`.
 
+## JupySQL 0.9.1 (2023-08-10)
+
+* [Feature] Added `--breaks/-B` to ggplot histogram for specifying breaks ([#719](https://github.com/ploomber/jupysql/issues/719)) ([Docs](https://jupysql.ploomber.io/en/latest/api/magic-plot.html#specifying-breaks))
+* [Feature] Adds Redshift support for `%sqlplot boxplot`
+* [Fix] Improved compatibility with Microsoft SQL Server
+* [Fix] Improves performance when converting DuckDB results to `pandas.DataFrame`
+* [Fix] Fixes a bug when converting a CTE stored with `--save` into a `pandas.DataFrame` via `.DataFrame()`
+* [Doc] Add Redshift tutorial
+
+
 ## JupySQL 0.9.0 (2023-08-01)
 
 *Full [changelog here.](https://github.com/ploomber/jupysql/blob/master/CHANGELOG.md#090-2023-08-01)*
