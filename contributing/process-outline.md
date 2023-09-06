@@ -18,6 +18,7 @@ interested in working on.
 ## 2. Describe the Acceptance Criteria
 
 - Before starting to work on the issue, describe the acceptance criteria (AC). 
+- Write the AC in the issue when you create one.
 - The AC stage should be resolve in **24 hours** from issue assignment.
 - Describing the criteria includes what you're going to work on,
   and what the definition of done looks like (I'm going to add a function to  
