@@ -31,7 +31,7 @@ grayskull pypi --strict-conda-forge {package-name}
 
 ## Adding version updates
 
-By default, PRs opeened by the bot won't detect version updates. To enable them, add this to the `conda-forge.yml`
+By default, PRs opeened by the bot won't detect version updates. To enable them, create a `conda-forge.yml` file in the path `recipes/{package-name}` and add this to the file:
 
 ```yaml
 bot:
