@@ -5,17 +5,22 @@ import click
 
 REPOS = [
     "ploomber/dummy",
+    "ploomber/doc",
     "ploomber/jupysql",
+    "ploomber/jupysql-plugin",
+    "ploomber/jupyai",
+    "ploomber/posthog-analysis",
     "ploomber/ploomber",
     "ploomber/ploomber-engine",
     "ploomber/soopervisor",
     "ploomber/sklearn-evaluation",
-    "ploomber/cloud-backend",
-    "ploomber/cloud-frontend",
+    # "ploomber/cloud-backend",
+    # "ploomber/cloud-frontend",
     "ploomber/pkgmt",
     "ploomber/contributing",
+    "ploomber/cli",
+    "ploomber/scripts",
     "ploomber/core",
-    "ploomber/jupysql-plugin",
     "ploomber/ploomber.io",
 ]
 

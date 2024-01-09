@@ -65,28 +65,3 @@
   aliases: []
   description: Medium compplexity
   delete: false
-
-
-# code owners
-
-- name: "Owner: Eduardo"
-  color: "5D9AF1"
-  aliases: []
-  delete: false
-
-
-- name: "Owner: Ido"
-  color: "5DE0F1"
-  aliases: []
-  delete: false
-
-
-- name: "Owner: Yafim"
-  color: "5DF1A0"
-  aliases: []
-  delete: false
-
-- name: "Owner: Tony"
-  color: "D6F15D"
-  aliases: []
-  delete: false
