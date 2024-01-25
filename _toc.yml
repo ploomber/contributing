@@ -32,3 +32,7 @@ parts:
       - file: maintainer/jupyter-book
       - file: maintainer/readthedocs
       - file: maintainer/doc-guide
+
+  - caption: Social Media
+    chapters:
+      - file: social-media/social-media
