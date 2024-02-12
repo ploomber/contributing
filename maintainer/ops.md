@@ -114,33 +114,6 @@ git checkout main
 git merge upstream/main
 ```
 
-## Sync GitHub labels
-
-To sync labels across repositories, we use [this tool](https://github.com/Financial-Times/github-label-sync).
-
-```sh
-# setup
-conda create --name label-sync nodejs
-conda activate label-sync
-npm install -g github-label-sync
-pip install "click<9"
-
-cd github-labels/
-
-# pass the github token
-export GITHUB_TOKEN=XXX
-
-
-# dry-run with dummy repo
-python github-labels.py --dry-run
-
-# apply changes to dummy repo
-python github-labels.py
-
-# apply to all repos
-python github-labels.py --all-repos
-```
-
 ## Repository quality checklist
 
 This is a checklist of things we need to routinely verify:
