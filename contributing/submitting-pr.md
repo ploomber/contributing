@@ -221,7 +221,7 @@ If the change breaks the API, the version will be handled case by case. However,
 
 ## Backwards compatibility
 
-When breaking the API, we give heads up nnotice to our users so they have enough time to update their code. This involves showing warnings letting them know that a certain feature will be deprecated.
+When breaking the API, we give heads up notice to our users so they have enough time to update their code. This involves showing warnings letting them know that a certain feature will be deprecated.
 
 We currently do not have a strict policy so we review cases on a case-by-case basis, but a good rule of thumb is to give at least a month's notice. This implies that Code Owners should ensure that the contributor opens a new PR with deprecation warnings, we merge the PR, and make a new release (by notifying Eduardo or Ido). This process should be prioritized so we make a release as soon as we decide that we'll break the API.
 
